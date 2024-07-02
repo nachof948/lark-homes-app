@@ -54,3 +54,21 @@ export const getUser = async (req, res, next) =>{
         next(error)
     }
 }
+
+export const getUserPropertyLikes = async (req, res, next) =>{
+    const { id } = req.params
+    const userId = req.user.id
+    try {
+        const user = await User.findById(userId)
+        if(user.propertyLikes.includes(id)){
+            const index = user.propertyLikes.indexOf(id)
+            user.propertyLikes.splice(index, 1)
+        }else{
+            user.propertyLikes.push(id)
+        }
+        const updateUser = await user.save()
+        res.status(200).json(updateUser)
+    } catch (error) {
+        next(error)
+    }
+}

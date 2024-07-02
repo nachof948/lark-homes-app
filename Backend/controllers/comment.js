@@ -32,7 +32,7 @@ export const likeComment = async(req, res, next) =>{
             return res.status(404).json({message: 'No se encontro ese comentario'})
         }
         const userIndex = comment.likes.indexOf(req.user.id);
-        if(userIndex === 1-1){
+        if(userIndex === -1){
             comment.likes.push(req.user.id)
         }else{
             comment.likes.splice(userIndex, 1)
