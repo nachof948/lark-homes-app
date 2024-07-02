@@ -16,6 +16,7 @@ import {
 import { CopiedUrl } from '../components/CopiedUrl'
 import { userGet } from '../redux/actions/user';
 import { Comments } from '../components/Comments';
+import { Plus } from '../components/Plus';
 
 const Publication = () => {
   SwiperCore.use([Navigation]);
@@ -34,28 +35,29 @@ const Publication = () => {
   return(
     <main className='mt-[7rem] bg-white'>
       <Swiper navigation modules={[EffectFade]} effect="fade">
-        {list?.imageUrls.map((url) => (
+        {list?.imageUrls?.map((url) => (
           <SwiperSlide key={url}>
             <img className="h-[600px] w-full object-cover" src={url} alt="Casa" />
           </SwiperSlide>
         ))}
       </Swiper>
       <div className="flex flex-col max-w-4xl p-3 mx-auto my-7 gap-4 ">
-        <Link to={`/perfil/${userData._id}`} className="flex items-center gap-2">
-          <p>Publicada por <span  className='font-semibold font-nunito'>{userData.username}</span></p>
-          <img src={userData.imageProfile} alt={userData.username} className='w-[2rem] rounded-full' />
+        <Link to={`/perfil/${userData?._id}`} className="flex items-center gap-2">
+          <p>Publicada por <span  className='font-semibold font-nunito'>{userData?.username}</span></p>
+          <img src={userData?.imageProfile} alt={userData?.username} className='w-[2rem] rounded-full' />
         </Link>
         <div className="flex items-center gap-3">
         <p className="text-3xl font-semibold">
             {list?.name}{' - '}
             US$
             {list?.offer 
-              ? list?.discountPrice.toLocaleString('en-US')
-              : list?.regularPrice.toLocaleString('en-US')}
+              ? list?.discountPrice?.toLocaleString('en-US')
+              : list?.regularPrice?.toLocaleString('en-US')}
             {list?.type === 'rent' && '/mes'}
             {' - '}
           </p>
           <CopiedUrl />
+          <Plus />
         </div>
           
           <p className="flex items-center mt-2 gap-2 text-slate-600 text-xl">

@@ -22,6 +22,10 @@ export const getUser = (id) => API.get(`/user/details/${id}`,{
     withCredentials: 'include'
 })
 
+export const getPublicationLikes = (id) => API.post(`/user/propertiesLikes/${id}`,{
+    withCredentials:'include'
+})
+
 
 /* PROPIEDADES */
 export const createPublication = (formData, userRef) => API.post('/properties/create', {formData, userRef} ,{

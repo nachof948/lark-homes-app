@@ -29,3 +29,11 @@ export const userGet = (id) => async (dispatch) => {
     }
 }
 
+export const userAddPostLike = (id) => async (dispatch) => {
+    try {
+        const { data } = await api.getPublicationLikes(id)
+        dispatch({type: UPDATE_USER, payload: data})
+    } catch (error) {
+        console.log(error)
+    }
+}
