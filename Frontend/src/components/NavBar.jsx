@@ -37,7 +37,7 @@ return (
           </div>
         ))
       }
-      {user?.username ? <Link to='/mi-perfil'><img src={user.imageProfile} className='w-[3rem] h-[3rem] object-cover rounded-full'/></Link>: 
+      {user?.username ? <Link to='/mi-perfil'><img src={user.imageProfile} className='w-[3rem] h-[3rem] object-cover rounded-full ml-3'/></Link>: 
             <Link to={'/registrarse'} className='bg-color-azul text-white transition-all duration-300 font-nunito py-2 px-6 rounded-2xl border border-color-azul md:ml-8 hover:bg-transparent hover:text-color-azul '>
             Registrate
           </Link>
