@@ -16,7 +16,7 @@ const SearchInput = () => {
     urlParams.set('search', search);
     const searchQuery = urlParams.toString()
     dispatch(searchGet(searchQuery))
-    navegar(`/search/${searchQuery}`)
+    navegar(`/search?${searchQuery}`)
   }
   
   const inputStyle = 'bg-slate-200 outline-none w-[45rem] py-6 px-14 rounded-full placeholder:text-color-negro'

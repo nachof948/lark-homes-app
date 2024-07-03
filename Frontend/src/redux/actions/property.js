@@ -1,4 +1,4 @@
-import { GET_PUBLICATION, UPDATE_PUBLICATION, DELETE_PUBLICATION } from "../../constants";
+import { GET_PUBLICATION, SEARCH_LISTING, DELETE_PUBLICATION } from "../../constants";
 import * as api from '../../api/index'
 
 export const publicationGet = (id) => async (dispatch) =>{
