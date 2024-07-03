@@ -41,48 +41,54 @@ export const updateProperty = async (req, res, next) =>{
     }
 }
 
-export const searchProperties = async (req, res, next) =>{
+export const searchProperties = async (req, res, next) => {
     try {
-/*         const limit = parseInt(req.query.limit) || 9
-        const startIndex = parseInt(req.query.startIndex) || 0 */
-        
         let offer = req.query.offer;
-        if(offer === undefined || offer === 'false'){
-            offer = { $in: [false, true]}
+        if (offer === undefined || offer === 'false') {
+            offer = { $in: [false, true] };
+        } else {
+            offer = true;
         }
-        
-        let furnished = req.query.furnished;
-        if(furnished === undefined || furnished === 'false'){
-            furnished = { $in: [false, true]}
-        }
-        
-        let parking= req.query.furnished;
-        if(parking=== undefined || parking=== 'false'){
-            parking= { $in: [false, true]}
-        }
-        
-        let type= req.query.furnished;
-        if(type=== undefined || type === 'all'){
-            type= { $in: ['sale', 'rent']}
-        }
-        
-        const search = req.query.search || ''
 
-        const sort = req.query.sort || 'createdAt'
-        
-        const order = req.query.order || 'desc'
-        
+        let furnished = req.query.furnished;
+        if (furnished === undefined || furnished === 'false') {
+            furnished = { $in: [false, true] };
+        } else {
+            furnished = true;
+        }
+
+        let parking = req.query.parking;
+        if (parking === undefined || parking === 'false') {
+            parking = { $in: [false, true] };
+        } else {
+            parking = true;
+        }
+
+        let type = req.query.type;
+        if (type === undefined || type === 'all') {
+            type = { $in: ['sale', 'rent'] };
+        }
+
+        const search = req.query.search || '';
+
+        const sort = req.query.sort || 'createdAt';
+
+        const order = req.query.order || 'desc';
+
         const property = await Property.find({
-            name: {$regex: search, $options: 'i'},
+            name: { $regex: search, $options: 'i' },
             offer,
             furnished,
             parking,
             type
         }).sort(
-            {[sort]: order}
-        )/* .limit(limit).skip(startIndex) */
-        return res.status(200).json(property)
+            { [sort]: order }
+        );
+
+        console.log(property);
+        return res.status(200).json(property);
     } catch (error) {
-        next(error)
+        next(error);
     }
-}
+};
+
