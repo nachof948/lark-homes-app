@@ -4,8 +4,9 @@ import { useParams, Link } from 'react-router-dom';
 import { commentCreate, commentDelete, commentGet, commentEdit} from '../redux/actions/comment';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
-import * as api from '../api/index';
 import useUserComments from '../hooks/useUserComment';
+
+import { Likes } from './Likes';
 
 const Comments = () => {
   const dispatch = useDispatch();
@@ -46,12 +47,11 @@ const Comments = () => {
     e.preventDefault();
     try {
       dispatch(commentCreate(content, user._id, id));
-      setContent(''); // Clear the textarea after submit
+      setContent(''); 
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <div className='flex flex-col'>
       <form className="mx-auto flex items-center gap-3" onSubmit={handleSubmit}>
@@ -82,7 +82,6 @@ const Comments = () => {
                     Cancelar
                   </button>
                 </div>
-
               </>
             ) : (
               <>
@@ -98,10 +97,13 @@ const Comments = () => {
                   </div>
                 )}
                 {comment.userData ? (
-                  <Link to={`/perfil/${comment.userRef}`} className="flex items-center gap-2">
-                    <p>Comentario realizado por <span className='font-bold font-nunito'>{comment.userData.username} </span></p>
-                    <img className='w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
-                  </Link>
+                  <div className="flex items-center gap-4">
+                    <Link to={`/perfil/${comment.userRef}`} className="flex items-center gap-2">
+                      <p>Comentario realizado por <span className='font-bold font-nunito'>{comment.userData.username} </span></p>
+                      <img className='w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
+                    </Link>
+                    <Likes comment={comment} userId={user._id} commentId={comment._id} />
+                  </div>
                 ) : (
                   <p>Cargando...</p>
                 )}

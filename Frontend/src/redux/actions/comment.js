@@ -29,7 +29,14 @@ export const commentEdit = (id, content) => async (dispatch) => {
   }
 };
 
-
+export const commentLike = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likeComment(id);
+    dispatch({ type: UPDATE_COMMENT, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const commentDelete = (id) => async (dispatch) => {
   try {

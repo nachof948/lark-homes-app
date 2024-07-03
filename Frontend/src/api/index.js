@@ -54,4 +54,7 @@ export const deleteComment = (id) => API.delete(`/comment/deleteComment/${id}`, 
 export const updateComment = (id, content) => API.put(`/comment/editComment/${id}`, {content},{
     withCredentials:'include'
 })
+export const likeComment = (id) => API.put(`/comment/likeComment/${id}`,{
+    withCredentials:'include'
+})
 
