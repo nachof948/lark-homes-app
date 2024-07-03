@@ -10,7 +10,7 @@ const CardProperty = ({ listing }) => {
 	} 
 
   return(
-    <div className="flex gap-3">
+    <div className="flex gap-10">
 			{listing?.map(propiedad =>(
         <div className="flex flex-col relative font-nunito w-[22rem] cursor-pointer" onClick={() =>navigateToPublication(propiedad._id)}>
 					<div className="relative w-[22rem] h-[15rem] overflow-hidden rounded-lg cursor-pointer">
