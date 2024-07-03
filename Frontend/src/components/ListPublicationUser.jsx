@@ -25,7 +25,7 @@ const ListPublicationUser = ({ id }) => {
     <div>
       {listing?.map((list) =>(
         <div className="flex items-center gap-3">
-          <Link to={`/publicacion/${list._id}`}><img src={list.imageUrls[0]} alt={list.name} className='w-[13rem] my-6 rounded-md' /></Link>
+          <Link to={`/publicacion/${list._id}`}><img src={list.imageUrls[0]} alt={list.name} className='w-[13rem] h-[10rem] object-cover my-6 rounded-md' /></Link>
           <div className="flex flex-col">
             <Link to={`/editar-publicacion/${list._id}`} className='text-green-700 font-nunito hover:underline'>Editar</Link>
             <button className='text-red-700 hover:underline'onClick={() => handleDelete(list._id)}>Eliminar</button>

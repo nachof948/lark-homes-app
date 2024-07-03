@@ -83,7 +83,7 @@ const SearchTab = () => {
       <SearchInput styleInput={styleInput} styleButton={styleButton} styleIcon={styleIcon} />
       <form onSubmit={handleSubmit} className='mt-2 flex flex-col gap-4'>
         <div className="flex gap-4 flex-wrap items-center">
-          <label className='text-lg'>Tipo:</label>
+          <label className='text-lg font-semibold'>Tipo:</label>
           <div className="flex items-center gap-2 font-semibold">
             <input
               type="checkbox"
@@ -126,7 +126,7 @@ const SearchTab = () => {
           </div>
         </div>
         <div className="flex gap-4 flex-wrap items-center">
-          <label className="text-lg">Comodidades:</label>
+          <label className="text-lg font-semibold">Comodidades:</label>
           <div className=" flex items-center gap-2 font-semibold">
             <input
               type="checkbox"
@@ -149,9 +149,9 @@ const SearchTab = () => {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <label>Ordenar</label>
+          <label className='text-lg font-semibold'>Ordenar</label>
           <select name="sort_order"
-            className="border rounded-lg p-3"
+            className="border rounded-lg p-3 cursor-pointer"
             onChange={handleChange}
             defaultValue={'createdAt_desc'}
           >
@@ -161,7 +161,7 @@ const SearchTab = () => {
             <option value='createdAt_asc'>Antiguas</option>
           </select>
         </div>
-        <button className="bg-slate-700 p-3 text-white uppercase rounded-lg hover:opacity-90">Buscar</button>
+        <button className="bg-color-azul font-nunito p-3 w-[10rem] mx-auto text-white uppercase rounded-lg hover:opacity-90">Buscar</button>
       </form>
     </section>
   );

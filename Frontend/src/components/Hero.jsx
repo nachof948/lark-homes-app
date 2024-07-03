@@ -1,7 +1,8 @@
 import React from 'react';
-import CasaHero from '../../public/Casa - Hero.jpg'
+import CasaHero from '/Casa - Hero.jpg'
 import { SearchInput } from './SearchInput';
 import { Statistics } from './Statistics';
+
 const Hero = () => {
   return(
     <section className='flex justify-between items-stretch'>

@@ -10,7 +10,9 @@ const Search = () => {
     <main className='mt-32 flex mx-auto justify-end w-[85vw]'>
       <SearchTab />
       <div className='w-[70%]'>
-        <CardProperty listing={listing}/>
+        {listing.length > 0 ? 
+        <CardProperty listing={listing} /> : 
+        <p className='font-nunito flex justify-center text-2xl mt-4 '>No hay propiedades con esas caracteristicas</p>}
       </div>
     </main>
   );
