@@ -58,3 +58,7 @@ export const likeComment = (id) => API.put(`/comment/likeComment/${id}`,{
     withCredentials:'include'
 })
 
+/* SEARCH*/
+export const getSearch = (searchQuery) => API.get(`/properties/search?${searchQuery}`,{
+    withCredentials:'include'
+})

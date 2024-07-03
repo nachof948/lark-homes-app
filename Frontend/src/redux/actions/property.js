@@ -26,3 +26,13 @@ export const publicationDelete = (id) => async(dispatch) =>{
         console.log(error)
     }
 }
+
+export const searchGet = (searchQuery) => async (dispatch) =>{
+    try {
+        const { data } = await api.getSearch(searchQuery)
+        console.log(data)
+        dispatch({type: SEARCH_LISTING, payload: data})
+    } catch (error) {
+        console.log(error)
+    }
+}

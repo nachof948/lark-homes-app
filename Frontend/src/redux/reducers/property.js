@@ -1,4 +1,4 @@
-import { DELETE_IMAGE, DELETE_PUBLICATION, GET_PUBLICATION, GET_PUBLICATION_USER, UPDATE_PUBLICATION } from "../../constants";
+import { DELETE_IMAGE, DELETE_PUBLICATION, GET_PUBLICATION, GET_PUBLICATION_USER, UPDATE_PUBLICATION,SEARCH_LISTING } from "../../constants";
 
 const initialState = {
     listing:[],
@@ -32,6 +32,11 @@ const listingReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 list: action.payload
+            }
+        case SEARCH_LISTING:
+            return {
+                ...state, 
+                listing: action.payload
             }
         default:
             return state

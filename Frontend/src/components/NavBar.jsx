@@ -17,7 +17,7 @@ const NavBar = () => {
   const [open,setOpen]=useState(false);
 
 return (
-  <header className=' w-full fixed top-0 left-0 z-10  bg-white'>
+  <header className=' w-full fixed top-0 left-0 z-10 mb-6  bg-white'>
     <div className='w-[85vw] mx-auto md:flex items-center justify-between py-4 '>
       <Link to={'/'} className='font-bold text-2xl cursor-pointer flex items-center font-nunito
     text-gray-800 gap-4'>

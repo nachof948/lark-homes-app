@@ -9,6 +9,7 @@ import { CreatePublication } from './pages/CreatePublication'
 import { Publication } from './pages/Publication'
 import { UpdatePublication } from './pages/UpdatePublication'
 import { UserProfile } from './pages/UserProfile'
+import { Search } from './pages/Search'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/iniciar-sesion' element={<SignIn />}></Route>
         <Route path='/publicacion/:id' element={<Publication />}></Route>
         <Route path='/perfil/:id' element={<UserProfile />}></Route>
+        <Route path='/search' element={<Search />}></Route>
         <Route element={<PrivateRoute/>}>
           <Route path='/mi-perfil' element={<Profile />}></Route>
           <Route path='/crear-publicacion' element={<CreatePublication />}></Route>
