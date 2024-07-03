@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.post('/create', verifyUser, createComment);
 router.get('/getComment/:id', getPostComments);
-router.put('/likeComment', verifyUser, likeComment);
+router.put('/likeComment/:id', verifyUser, likeComment);
 router.put('/editComment/:id', verifyUser, editComment),
 router.delete('/deleteComment/:id', verifyUser, deleteComment);
 

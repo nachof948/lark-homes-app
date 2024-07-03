@@ -38,6 +38,7 @@ export const likeComment = async(req, res, next) =>{
             comment.likes.splice(userIndex, 1)
         }
         await comment.save()
+        console.log(comment)
         res.status(200).json(comment)
     } catch (error) {
         next(error)
