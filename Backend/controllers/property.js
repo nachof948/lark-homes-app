@@ -43,8 +43,8 @@ export const updateProperty = async (req, res, next) =>{
 
 export const searchProperties = async (req, res, next) =>{
     try {
-        const limit = parseInt(req.query.limit) || 9
-        const startIndex = parseInt(req.query.startIndex) || 0
+/*         const limit = parseInt(req.query.limit) || 9
+        const startIndex = parseInt(req.query.startIndex) || 0 */
         
         let offer = req.query.offer;
         if(offer === undefined || offer === 'false'){
@@ -80,7 +80,7 @@ export const searchProperties = async (req, res, next) =>{
             type
         }).sort(
             {[sort]: order}
-        ).limit(limit).skip(startIndex)
+        )/* .limit(limit).skip(startIndex) */
         return res.status(200).json(property)
     } catch (error) {
         next(error)
