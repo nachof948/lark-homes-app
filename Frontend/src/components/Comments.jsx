@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { commentCreate, commentDelete, commentGet, commentEdit} from '../redux/actions/comment';
+import { commentCreate, commentDelete, commentGet, commentEdit } from '../redux/actions/comment';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import useUserComments from '../hooks/useUserComment';
-
 import { Likes } from './Likes';
 
 const Comments = () => {
@@ -31,14 +30,14 @@ const Comments = () => {
     setEditingCommentId(commentId);
     setEditingContent(currentContent);
   };
-  
-  const handleCancel = () =>{
+
+  const handleCancel = () => {
     setEditingCommentId(null);
     setEditingContent('');
-  }
+  };
 
   const handleUpdateComment = (id, content) => {
-    dispatch(commentEdit(id, content))
+    dispatch(commentEdit(id, content));
     setEditingCommentId(null);
     setEditingContent('');
   };
@@ -47,28 +46,33 @@ const Comments = () => {
     e.preventDefault();
     try {
       dispatch(commentCreate(content, user._id, id));
-      setContent(''); 
+      setContent('');
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div className='flex flex-col'>
-      <form className="mx-auto flex items-center gap-3" onSubmit={handleSubmit}>
-        <textarea
-          name="content"
-          placeholder='Escribi tu comentario...'
-          className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[50rem] h-[10rem] p-3'
-          onChange={(e) => setContent(e.target.value)}
-          value={content}
-        />
-        <button className='bg-color-azul text-white font-nunito p-3 rounded-md uppercase'>Enviar</button>
-      </form>
+      {user ? (
+        <form className="mx-auto flex items-center gap-3" onSubmit={handleSubmit}>
+          <textarea
+            name="content"
+            placeholder='Escribi tu comentario...'
+            className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[50rem] h-[10rem] p-3'
+            onChange={(e) => setContent(e.target.value)}
+            value={content}
+          />
+          <button className='bg-color-azul text-white font-nunito p-3 rounded-md uppercase'>Enviar</button>
+        </form>
+      ) : (
+        <p className="mx-auto text-center font-nunito text-red-500">Debes estar logueado para dejar un comentario.</p>
+      )}
       <div className="mt-5 flex flex-col gap-3">
         {commentsWithUserData?.map((comment) => (
           <div key={comment._id} className="flex flex-col items-start gap-3 border p-3 border-color-azul rounded-md">
             {editingCommentId === comment._id ? (
-              <>
+              <div>
                 <textarea
                   className='font-nunito outline-none resize-none border border-color-azul rounded-md w-full h-[10rem] p-3'
                   value={editingContent}
@@ -82,11 +86,11 @@ const Comments = () => {
                     Cancelar
                   </button>
                 </div>
-              </>
+              </div>
             ) : (
               <>
                 <p className='font-nunito'>{comment.content}</p>
-                {comment.userRef === user._id && (
+                {comment.userRef === user?._id && (
                   <div className="flex gap-3 items-center">
                     <button onClick={() => handleDeleteComment(comment._id)} className='text-red-700 text-xl'>
                       <RiDeleteBin6Line />
@@ -102,7 +106,7 @@ const Comments = () => {
                       <p>Comentario realizado por <span className='font-bold font-nunito'>{comment.userData.username} </span></p>
                       <img className='w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
                     </Link>
-                    <Likes comment={comment} userId={user._id} commentId={comment._id} />
+                    <Likes comment={comment} userId={user?._id} commentId={comment._id} />
                   </div>
                 ) : (
                   <p>Cargando...</p>

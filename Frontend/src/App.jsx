@@ -27,7 +27,7 @@ function App() {
           <Route path='/mi-perfil' element={<Profile />}></Route>
           <Route path='/crear-publicacion' element={<CreatePublication />}></Route>
           <Route path='/editar-publicacion/:id' element={<UpdatePublication />}></Route>
-        </Route>
+        </Route> 
       </Routes>
     </BrowserRouter>
   )
