@@ -17,6 +17,8 @@ import { CopiedUrl } from '../components/CopiedUrl'
 import { userGet } from '../redux/actions/user';
 import { Comments } from '../components/Comments';
 import { Plus } from '../components/Plus';
+import { LikeProperty } from '../components/LikesProperty';
+
 
 const Publication = () => {
   SwiperCore.use([Navigation]);
@@ -58,6 +60,7 @@ const Publication = () => {
           </p>
           <CopiedUrl />
           <Plus />
+          <LikeProperty list={list} userId={userData._id}/>
         </div>
           
           <p className="flex items-center mt-2 gap-2 text-slate-600 text-xl">

@@ -5,7 +5,7 @@ import { commentCreate, commentDelete, commentGet, commentEdit } from '../redux/
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import useUserComments from '../hooks/useUserComment';
-import { Likes } from './Likes';
+import { LikesComments } from './LikesComments';
 
 const Comments = () => {
   const dispatch = useDispatch();
@@ -106,7 +106,7 @@ const Comments = () => {
                       <p>Comentario realizado por <span className='font-bold font-nunito'>{comment.userData.username} </span></p>
                       <img className='w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
                     </Link>
-                    <Likes comment={comment} userId={user?._id} commentId={comment._id} />
+                    <LikesComments comment={comment} userId={user?._id} commentId={comment._id} />
                   </div>
                 ) : (
                   <p>Cargando...</p>

@@ -1,4 +1,4 @@
-import { GET_PUBLICATION, SEARCH_LISTING, DELETE_PUBLICATION } from "../../constants";
+import { GET_PUBLICATION, SEARCH_LISTING, DELETE_PUBLICATION, UPDATE_PUBLICATION } from "../../constants";
 import * as api from '../../api/index'
 
 export const publicationGet = (id) => async (dispatch) =>{
@@ -36,3 +36,12 @@ export const searchGet = (searchQuery) => async (dispatch) =>{
         console.log(error)
     }
 }
+
+export const propertyLike = (id) => async (dispatch) => {
+    try {
+      const { data } = await api.likeProperty(id);
+    dispatch({type: UPDATE_PUBLICATION, payload: data}) 
+    } catch (error) {
+      console.log(error);
+    }
+  };

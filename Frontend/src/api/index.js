@@ -40,6 +40,10 @@ export const updatePublication = (formData, id) => API.put(`/properties/update/$
 export const deletePublication = (id) => API.delete(`/properties/delete/${id}`, {
     withCredentials:'include'
 })
+export const likeProperty = (id) => API.put(`/properties/likeProperty/${id}`,{
+    withCredentials:'include'
+})
+
 
 /* COMENTARIOS */
 export const createComment = (content, userRef, postId) => API.post(`/comment/create`, {content, userRef, postId},{
