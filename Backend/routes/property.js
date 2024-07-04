@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('/create', verifyUser, createProperty);
 router.delete('/delete/:id', verifyUser, deleteProperty)
 router.put('/update/:id', verifyUser, updateProperty)
-router.get('/property/:id', verifyUser, getProperty)
+router.get('/property/:id', getProperty)
 router.get('/search', searchProperties)
 
 

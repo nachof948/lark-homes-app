@@ -84,8 +84,6 @@ export const searchProperties = async (req, res, next) => {
         }).sort(
             { [sort]: order }
         );
-
-        console.log(property);
         return res.status(200).json(property);
     } catch (error) {
         next(error);
