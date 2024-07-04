@@ -90,3 +90,23 @@ export const searchProperties = async (req, res, next) => {
     }
 };
 
+export const likeProperty = async(req, res, next) =>{
+    const { id } = req.params;
+    try {
+        const property = await Property.findById(id)
+        if(!property){
+            return res.status(404).json({message: 'No se encontro esa propiedad'})
+        }
+        const userIndex = property.likes.indexOf(req.user.id);
+        if(userIndex === -1){
+            property.likes.push(req.user.id)
+        }else{
+            property.likes.splice(userIndex, 1)
+        }
+        await property.save()
+        res.status(200).json(property)
+    } catch (error) {
+        next(error)
+    }
+}
+
