@@ -17,8 +17,8 @@ const persistor = persistStore(store);
 export { store, persistor }
 
 // Llama al método purge() del persistor
-/* persistor.purge().then(() => {
+/*  persistor.purge().then(() => {
   console.log('Estado persistente restablecido');
 }).catch((error) => {
   console.error('Error al restablecer el estado persistente:', error);
-}); */
+});  */

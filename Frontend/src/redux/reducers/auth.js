@@ -1,7 +1,7 @@
 
-import { AUTH, LOGOUT,ERROR, CLEAR_ERROR, UPDATE_USER, USER_DATA } from "../../constants"
+import { AUTH, LOGOUT,ERROR, CLEAR_ERROR, UPDATE_USER, USER_DATA, DELETE_USER } from "../../constants"
 const initialState={
-    user: null,
+    user: {},
     error: false,
     userData: null
 }
@@ -15,7 +15,7 @@ const auth = (state= initialState, action) =>{
         case LOGOUT:
             return{
                 ...state,
-                user:null
+                user:{}
             }
         case ERROR:
             return{
@@ -37,6 +37,11 @@ const auth = (state= initialState, action) =>{
                 ...state,
                 userData: action.payload
             }
+        case DELETE_USER:
+            return {
+                ...state,
+                user: {},
+            };
         default:{
             return state
         }

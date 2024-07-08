@@ -22,7 +22,7 @@ const ListPublicationUser = ({ id }) => {
   }
 
   return(
-    <div>
+    <div className='flex items-center flex-wrap gap-4 w-[40rem] h-fit max-h-[27rem] overflow-y-scroll'>
       {listing?.map((list) =>(
         <div className="flex items-center gap-3">
           <Link to={`/publicacion/${list._id}`}><img src={list.imageUrls[0]} alt={list.name} className='w-[13rem] h-[10rem] object-cover my-6 rounded-md' /></Link>

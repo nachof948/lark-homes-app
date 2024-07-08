@@ -1,16 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { CardProperty } from './CardProperty'
-const PropertiesHome = () => {
-  const { listing } = useSelector((state) => state.listing);
+import { publicationGetAll } from '../redux/actions/property';
 
+
+const PropertiesHome = () => {
+  const dispatch = useDispatch()
+  const { listing } = useSelector((state) => state.listing);
   
   const sortedProperties = [...listing].sort((a, b) => b.likes.length - a.likes.length);
 
   const topProperties = sortedProperties.splice(0, 4)
-
-
-
+  
+  useEffect(() => {
+    dispatch(publicationGetAll())
+  },[dispatch])
+  
   return(
     <section className='flex flex-col mb-6'>
       <div className="flex justify-between items-center">

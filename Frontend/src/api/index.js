@@ -21,6 +21,9 @@ export const getPublicationUser = (id) => API.get(`/user/properties/${id}`,{
 export const getUser = (id) => API.get(`/user/details/${id}`,{
     withCredentials: 'include'
 })
+export const deleteUser = (id) => API.delete(`/user/delete/${id}`,{
+    withCredentials: 'include'
+})
 
 export const getPublicationLikes = (id) => API.post(`/user/propertiesLikes/${id}`,{
     withCredentials:'include'
@@ -32,6 +35,9 @@ export const createPublication = (formData, userRef) => API.post('/properties/cr
     withCredentials:'include'
 })
 export const getPublication = (id) => API.get(`/properties/property/${id}`,{
+    withCredentials:'include'
+})
+export const getAllPublication = () => API.get(`/properties/allProperties`,{
     withCredentials:'include'
 })
 export const updatePublication = (formData, id) => API.put(`/properties/update/${id}`, {formData} ,{

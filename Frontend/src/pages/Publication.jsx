@@ -26,6 +26,7 @@ const Publication = () => {
   const dispatch = useDispatch()
   const { list } = useSelector((state) => state.listing)
   const { userData } = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state.auth)
   const { id } = useParams()
   
   useEffect(() => {
@@ -60,7 +61,7 @@ const Publication = () => {
           </p>
           <CopiedUrl />
           <Plus />
-          <LikeProperty list={list} userId={userData._id}/>
+          <LikeProperty list={list} userId={user._id}/>
         </div>
           
           <p className="flex items-center mt-2 gap-2 text-slate-600 text-xl">

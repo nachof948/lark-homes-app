@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { logout } from '../redux/actions/auth';
 import { Input } from '../components/Input';
-import { userUpdate } from '../redux/actions/user';
+import { userDelete, userUpdate } from '../redux/actions/user';
 import { UploadImage } from '../components/UploadImage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,6 +29,11 @@ const Profile = () => {
     dispatch(logout());
     navegar('/');
   };
+
+  const eliminarCuenta =  (id) =>{
+      dispatch(userDelete(id))
+      navegar('/');
+  }
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -103,12 +108,12 @@ const Profile = () => {
             <h2>Propiedades guardadas</h2>
             <div className="flex items-center gap-3">
             {properties.map(propiedad => (
-              <Link to={`/publicacion/${propiedad._id}`} key={propiedad._id}>
+              <Link to={`/publicacion/${propiedad?._id}`} key={propiedad?._id}>
                 <div className="relative w-[15rem] h-[10rem] overflow-hidden rounded-lg">
                   <img 
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform hover:scale-110" 
-                    src={propiedad.imageUrls[0]} 
-                    alt={propiedad.title} 
+                    src={propiedad?.imageUrls} 
+                    alt={propiedad?.title} 
                   />
                 </div>
               </Link>
@@ -119,15 +124,18 @@ const Profile = () => {
         {user?.seller && (
           <div className="text-xl font-nunito flex flex-col">
             <p>Mis Publicaciones</p>
-            <ListPublicationUser id={user._id} />
-            <Link className="bg-red-700 text-white p-3 rounded-md hover:opacity-90" to={'/crear-publicacion'}>
+            <ListPublicationUser id={user?._id} />
+            <Link className="bg-red-700 text-white p-3 rounded-md hover:opacity-90 w-fit" to={'/crear-publicacion'}>
               Crear una nueva publicación
             </Link>
           </div>
         )}
       </div>
-      <button onClick={cerrarSesion} className="mr-6 bg-red-500 p-2 rounded-md text-white hover:opacity-90">
+      <button onClick={cerrarSesion} className="mr-6 bg-green-500 p-2 rounded-md text-white hover:opacity-90">
         Cerrar Sesión
+      </button>
+      <button onClick={() => eliminarCuenta(user._id)} className="mr-6 bg-red-500 p-2 rounded-md text-white hover:opacity-90">
+        Eliminar mi cuenta
       </button>
       {!user?.seller && (
         <form>

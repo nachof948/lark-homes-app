@@ -1,5 +1,5 @@
 import * as api from '../../api/index'
-import { UPDATE_USER, GET_PUBLICATION_USER, USER_DATA } from '../../constants'
+import { UPDATE_USER, GET_PUBLICATION_USER, USER_DATA, DELETE_USER} from '../../constants'
 
 export const userUpdate = (formData,id) => async (dispatch) => {
     try {
@@ -9,6 +9,16 @@ export const userUpdate = (formData,id) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const userDelete = (id) => async (dispatch) => {
+    try {
+        await api.deleteUser(id)
+        dispatch({type: DELETE_USER })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 export const userGetPublication = (id) => async (dispatch) => {

@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const { user } = useSelector((state) => state.auth)
+  console.log(user._id)
+  
 
   let Links =[
     {name:"Inicio",link:"/"},
