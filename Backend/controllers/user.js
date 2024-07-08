@@ -3,7 +3,7 @@ import Property from '../models/property.js'
 import { errorHandler } from '../middleware/error.js'
 
 export const updateUser = async (req, res, next) =>{
-    const { email, username, password, imageProfile, phone, biography } = req.body;
+    const { email, username, password, imageProfile, phone, biography, seller } = req.body;
     const { id } = req.params;
     try {
         const updateUser = await User.findByIdAndUpdate(id,{
@@ -13,7 +13,8 @@ export const updateUser = async (req, res, next) =>{
                 password:password,
                 imageProfile: imageProfile,
                 phone: phone,
-                biography: biography
+                biography: biography,
+                seller: seller
             }
         },{ new: true })
         res.status(200).json(updateUser)
@@ -25,8 +26,8 @@ export const updateUser = async (req, res, next) =>{
 export const deleteUser = async (req, res, next) =>{
     const { id } = req.params
     try {
-        await User.findOneAndDelete(id);
-        res.clearCoookie('access_token')
+        await User.findByIdAndDelete(id);
+        res.clearCookie('access_token')
         res.status(200).json({ message: 'El usuario fue eliminado'})
     } catch (error) {
         next(error)

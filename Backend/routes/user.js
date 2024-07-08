@@ -5,7 +5,7 @@ import { verifyUser } from '../middleware/verifyUser.js'
 const router = express.Router()
 
 router.post('/update/:id', verifyUser, updateUser)
-router.delete('/delete/:id', verifyUser, deleteUser)
+router.delete('/delete/:id', deleteUser)
 router.get('/properties/:id', verifyUser, getUserProperties)
 router.post('/propertiesLikes/:id', verifyUser, getUserPropertyLikes)
 router.get('/details/:id', getUser)

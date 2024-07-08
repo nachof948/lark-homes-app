@@ -29,6 +29,14 @@ export const getProperty  = async (req, res, next) =>{
         next(error)
     }
 }
+export const getAllProperties  = async (req, res, next) =>{
+    try {
+        const properties = await Property.find({})
+        res.status(200).json(properties)
+    } catch (error) {
+        next(error)
+    }
+}
 
 export const updateProperty = async (req, res, next) =>{
     const { id } = req.params;
