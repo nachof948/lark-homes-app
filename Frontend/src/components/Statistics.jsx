@@ -1,5 +1,5 @@
 import React from 'react';
-import dataHero from './dataHero.json'
+import dataHero from '../data/dataHero.json'
 
 const Statistics = () => {
   return(

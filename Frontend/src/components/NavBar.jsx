@@ -12,7 +12,7 @@ const NavBar = () => {
 
   let Links =[
     {name:"Inicio",link:"/"},
-    {name:"Sobre Nosotros",link:"/"},
+    {name:"Sobre Nosotros",link:"/sobre-nosotros"},
     {name:"Servicios",link:"/"},
     {name:"Contacto",link:"/"},
   ];

@@ -10,6 +10,8 @@ import { Publication } from './pages/Publication'
 import { UpdatePublication } from './pages/UpdatePublication'
 import { UserProfile } from './pages/UserProfile'
 import { Search } from './pages/Search'
+import { About } from './pages/About'
+import { Footer } from './components/Footer'
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/sobre-nosotros' element={<About/>}></Route>
         <Route path='/registrarse' element={<SignUp />}></Route>
         <Route path='/iniciar-sesion' element={<SignIn />}></Route>
         <Route path='/publicacion/:id' element={<Publication />}></Route>
@@ -29,6 +32,7 @@ function App() {
           <Route path='/editar-publicacion/:id' element={<UpdatePublication />}></Route>
         </Route> 
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
