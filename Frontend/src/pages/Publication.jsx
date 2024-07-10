@@ -34,6 +34,13 @@ const Publication = () => {
     dispatch(userGet(list?.userRef))
   },[dispatch, list?.userRef])
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  },[])
+
 
   return(
     <main className='mt-[7rem] bg-white'>

@@ -14,6 +14,7 @@ const SearchTab = () => {
     parking: false,
     furnished: false,
     offer: false,
+    propertyType:'all',
     sort: 'createdAt',
     order: 'desc'
   });
@@ -24,8 +25,15 @@ const SearchTab = () => {
       setSideBarData({
         ...sideBarData,
         type: name
+      })
+    } 
+    else if (['all', 'house', 'apartment'].includes(name)) {
+      setSideBarData({
+        ...sideBarData,
+        propertyType: name
       });
-    } else if (['offer', 'furnished', 'parking'].includes(name)) {
+    }
+    else if (['offer', 'furnished', 'parking'].includes(name)) {
       setSideBarData({
         ...sideBarData,
         [name]: checked
@@ -46,6 +54,7 @@ const SearchTab = () => {
     const urlParams = new URLSearchParams();
     urlParams.set('type', sideBarData.type);
     urlParams.set('parking', sideBarData.parking);
+    urlParams.set('propertyType', sideBarData.propertyType);
     urlParams.set('furnished', sideBarData.furnished);
     urlParams.set('offer', sideBarData.offer);
     urlParams.set('sort', sideBarData.sort);
@@ -59,6 +68,7 @@ const SearchTab = () => {
     const urlParams = new URLSearchParams(location.search);
     const typeTerm = urlParams.get('type');
     const parkingTerm = urlParams.get('parking');
+    const propertyTypeTerm = urlParams.get('propertyType')
     const furnishedTerm = urlParams.get('furnished');
     const offerTerm = urlParams.get('offer');
     const sortTerm = urlParams.get('sort');
@@ -68,6 +78,7 @@ const SearchTab = () => {
       type: typeTerm || 'all',
       parking: parkingTerm === 'true',
       furnished: furnishedTerm === 'true',
+      propertyType: propertyTypeTerm || 'all',
       offer: offerTerm === 'true',
       sort: sortTerm || 'createdAt',
       order: orderTerm || 'desc',
@@ -146,6 +157,30 @@ const SearchTab = () => {
               onChange={handleChange}
             />
             <span>Amueblado</span>
+          </div>
+          
+        </div>
+        <div className="flex gap-4 flex-wrap items-center">
+        <label className="text-lg font-semibold">Propiedades:</label>
+        <div className=" flex items-center gap-2 font-semibold">
+            <input
+              type="checkbox"
+              name="apartment"
+              className="w-4 h-4"
+              checked={sideBarData.propertyType === 'apartment'}
+              onChange={handleChange}
+            />
+            <span>Departamentos</span>
+          </div>
+          <div className=" flex items-center gap-2 font-semibold">
+            <input
+              type="checkbox"
+              name="house"
+              className="w-4 h-4"
+              checked={sideBarData.propertyType === 'house'}
+              onChange={handleChange}
+            />
+            <span>Casas</span>
           </div>
         </div>
         <div className="flex items-center gap-3">

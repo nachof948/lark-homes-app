@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoFooter from '../assets/Logo-Header.png'
+import LogoFooter from '../assets/Logo-Footer.png'
 import { Link } from 'react-router-dom';
 import { MdPlace } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return(
-    <footer className='mt-5 border-t-2 border-color-azul font-nunito'>
+    <footer className='mt-10 bg-color-gris-claro font-nunito'>
       <div className="w-[85vw] flex items-start justify-between mx-auto p-4">
       <div className="flex items-center gap-4">
         <img src={LogoFooter} alt="Lark Homes" className='w-[4rem]' />

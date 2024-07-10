@@ -15,6 +15,7 @@ const CreatePublication = () => {
     address:'',
     regularPrice:0,
     discountPrice:0,
+    propertyType:'house',
     bathrooms:0,
     bedrooms:0,
     furnished: false,
@@ -32,11 +33,20 @@ const CreatePublication = () => {
   const handleChange = (e) =>{
     if(
       e.target.name === 'sale' || 
-      e.target.name === 'rent'
+      e.target.name === 'rent' 
     ){
       setFormData({
         ...formData,
         type: e.target.name
+      })
+    }
+    if(
+      e.target.name === 'house' || 
+      e.target.name === 'apartment' 
+    ){
+      setFormData({
+        ...formData,
+        propertyType: e.target.name
       })
     }
     if(
@@ -101,6 +111,14 @@ const CreatePublication = () => {
             <div className="flex items-center gap-2">
               <label className='font-nunito text-color-azul text-xl'>Alquilar</label>
               <Input type='checkbox' name='rent' onChange={handleChange} checked={formData.type === 'rent'}/>
+            </div>
+            <div className="flex items-center gap-2">
+              <label className='font-nunito text-color-azul text-xl'>Casa</label>
+              <Input type='checkbox' name='house' onChange={handleChange} checked={formData.propertyType === 'house'}/>
+            </div>
+            <div className="flex items-center gap-2">
+              <label className='font-nunito text-color-azul text-xl'>Departamento</label>
+              <Input type='checkbox' name='apartment' onChange={handleChange} checked={formData.propertyType === 'apartment'}/>
             </div>
           </div>
           <button type='submit' className='bg-green-700 text-white font-nunito uppercase p-3 w-fit mx-auto rounded-md hover:opacity-90'>Publicar Propiedad</button>
