@@ -21,6 +21,10 @@ const propertySchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    propertyType:{
+        type:String,
+        required:true
+    },
     bathrooms:{
         type:Number,
         required:true

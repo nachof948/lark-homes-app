@@ -77,6 +77,11 @@ export const searchProperties = async (req, res, next) => {
             type = { $in: ['sale', 'rent'] };
         }
 
+        let propertyType = req.query.propertyType;
+        if(propertyType === undefined || propertyType === 'all'){
+            propertyType = { $in: ['house', 'apartment']}
+        }
+
         const search = req.query.search || '';
 
         const sort = req.query.sort || 'createdAt';
@@ -88,7 +93,8 @@ export const searchProperties = async (req, res, next) => {
             offer,
             furnished,
             parking,
-            type
+            type,
+            propertyType
         }).sort(
             { [sort]: order }
         );
