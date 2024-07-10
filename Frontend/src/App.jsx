@@ -12,28 +12,33 @@ import { UserProfile } from './pages/UserProfile'
 import { Search } from './pages/Search'
 import { About } from './pages/About'
 import { Footer } from './components/Footer'
-
+import { Services } from './pages/Services'
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/sobre-nosotros' element={<About/>}></Route>
-        <Route path='/registrarse' element={<SignUp />}></Route>
-        <Route path='/iniciar-sesion' element={<SignIn />}></Route>
-        <Route path='/publicacion/:id' element={<Publication />}></Route>
-        <Route path='/perfil/:id' element={<UserProfile />}></Route>
-        <Route path='/search' element={<Search />}></Route>
-        <Route element={<PrivateRoute/>}>
-          <Route path='/mi-perfil' element={<Profile />}></Route>
-          <Route path='/crear-publicacion' element={<CreatePublication />}></Route>
-          <Route path='/editar-publicacion/:id' element={<UpdatePublication />}></Route>
-        </Route> 
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <div className="flex flex-col min-h-screen">
+      <BrowserRouter>
+        <NavBar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/sobre-nosotros' element={<About />}></Route>
+            <Route path='/servicios' element={<Services />}></Route>
+            <Route path='/registrarse' element={<SignUp />}></Route>
+            <Route path='/iniciar-sesion' element={<SignIn />}></Route>
+            <Route path='/publicacion/:id' element={<Publication />}></Route>
+            <Route path='/perfil/:id' element={<UserProfile />}></Route>
+            <Route path='/search' element={<Search />}></Route>
+            <Route element={<PrivateRoute />}>
+              <Route path='/mi-perfil' element={<Profile />}></Route>
+              <Route path='/crear-publicacion' element={<CreatePublication />}></Route>
+              <Route path='/editar-publicacion/:id' element={<UpdatePublication />}></Route>
+            </Route>
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </div>
   )
 }
 

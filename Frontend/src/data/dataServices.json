@@ -1,0 +1,22 @@
+[
+    {
+        "number": "1",
+        "paso": "Ver propiedades",
+        "descripcion": "Explora nuestra amplia selección de propiedades disponibles, utilizando las herramientas de búsqueda para filtrar por ubicación, precio, tamaño y más."
+    },
+    {
+        "number": "2",
+        "paso": "Contáctate con nosotros",
+        "descripcion": "Una vez que encuentres una propiedad de tu interés, ponte en contacto con nuestro equipo para agendar una visita y obtener más información."
+    },
+    {
+        "number": "3",
+        "paso": "Solicitar una visita",
+        "descripcion": "Agenda una visita guiada para ver la propiedad en persona y resolver cualquier duda con uno de nuestros agentes inmobiliarios."
+    },
+    {
+        "number": "4",
+        "paso": "Comprar o alquilar la propiedad",
+        "descripcion": "Decide si deseas comprar o alquilar la propiedad y completa el proceso con la asistencia de nuestro equipo para asegurar una transacción sin problemas."
+    }
+]

@@ -7,19 +7,17 @@ import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const { user } = useSelector((state) => state.auth)
-  console.log(user._id)
-  
 
   let Links =[
     {name:"Inicio",link:"/"},
     {name:"Sobre Nosotros",link:"/sobre-nosotros"},
-    {name:"Servicios",link:"/"},
+    {name:"Servicios",link:"/servicios"},
     {name:"Contacto",link:"/"},
   ];
   const [open,setOpen]=useState(false);
 
 return (
-  <header className=' w-full fixed top-0 left-0 z-10 mb-6  bg-white'>
+  <header className={`w-full fixed top-0 left-0 z-10 mb-6 bg-white`}>
     <div className='w-[85vw] mx-auto md:flex items-center justify-between py-4 '>
       <Link to={'/'} className='font-bold text-2xl cursor-pointer flex items-center font-nunito
     text-gray-800 gap-4'>

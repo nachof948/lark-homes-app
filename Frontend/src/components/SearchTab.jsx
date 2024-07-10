@@ -90,7 +90,7 @@ const SearchTab = () => {
   const styleIcon = 'absolute top-5 left-3';
 
   return (
-    <section className='w-[25%] h-screen fixed top-32 left-36 z-10 border-r border-r-2 overflow-y-auto'>
+    <section className='w-[25%] h-[74%] fixed top-32 left-36 z-10 overflow-y-auto'>
       <SearchInput styleInput={styleInput} styleButton={styleButton} styleIcon={styleIcon} />
       <form onSubmit={handleSubmit} className='mt-2 flex flex-col gap-4'>
         <div className="flex gap-4 flex-wrap items-center">
