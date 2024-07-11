@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return(
-    <footer className='mt-10 bg-color-gris-claro font-nunito'>
+    <footer className='bg-color-gris-claro font-nunito'>
       <div className="w-[85vw] flex items-start justify-between mx-auto p-4">
       <div className="flex items-center gap-4">
         <img src={LogoFooter} alt="Lark Homes" className='w-[4rem]' />

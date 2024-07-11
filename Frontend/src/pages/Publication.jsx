@@ -28,6 +28,7 @@ const Publication = () => {
   const { userData } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.auth)
   const { id } = useParams()
+  console.log(list)
   
   useEffect(() => {
     dispatch(publicationGet(id))
@@ -108,7 +109,6 @@ const Publication = () => {
           </ul>
           <Comments />
         </div>
-
     </main>
   )
 }

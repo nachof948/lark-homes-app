@@ -13,6 +13,7 @@ import { Search } from './pages/Search'
 import { About } from './pages/About'
 import { Footer } from './components/Footer'
 import { Services } from './pages/Services'
+import { ContactUs } from './pages/ContactUs'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/' element={<Home />}></Route>
             <Route path='/sobre-nosotros' element={<About />}></Route>
             <Route path='/servicios' element={<Services />}></Route>
+            <Route path='/contacto' element={<ContactUs />}></Route>
             <Route path='/registrarse' element={<SignUp />}></Route>
             <Route path='/iniciar-sesion' element={<SignIn />}></Route>
             <Route path='/publicacion/:id' element={<Publication />}></Route>

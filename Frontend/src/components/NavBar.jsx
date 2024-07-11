@@ -12,7 +12,7 @@ const NavBar = () => {
     {name:"Inicio",link:"/"},
     {name:"Sobre Nosotros",link:"/sobre-nosotros"},
     {name:"Servicios",link:"/servicios"},
-    {name:"Contacto",link:"/"},
+    {name:"Contacto",link:"/contacto"},
   ];
   const [open,setOpen]=useState(false);
 
