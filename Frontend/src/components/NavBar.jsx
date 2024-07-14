@@ -11,8 +11,7 @@ const NavBar = () => {
   let Links =[
     {name:"Inicio",link:"/"},
     {name:"Sobre Nosotros",link:"/sobre-nosotros"},
-    {name:"Servicios",link:"/servicios"},
-    {name:"Contacto",link:"/contacto"},
+    {name:"Servicios",link:"/servicios"}
   ];
   const [open,setOpen]=useState(false);
 
