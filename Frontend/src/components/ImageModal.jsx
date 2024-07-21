@@ -24,7 +24,7 @@ const ImageModal = ({ isOpen, images, onClose, initialSlide }) => {
           effect="fade"
           initialSlide={initialSlide}
         >
-          {images.map((url, index) => (
+          {images?.map((url, index) => (
             <SwiperSlide key={index}>
               <img className="h-[600px] w-full object-cover" src={url} alt={`Slide ${index}`} />
             </SwiperSlide>

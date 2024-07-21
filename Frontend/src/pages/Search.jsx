@@ -14,7 +14,7 @@ const Search = () => {
   },[])
 
   return (
-    <main className='mt-32 flex mx-auto justify-end w-[85vw]'>
+    <main className='mt-32 mb-28 flex mx-auto justify-end w-[85vw]'>
       <SearchTab />
       <div className='w-[70%]'>
         {listing.length > 0 ?

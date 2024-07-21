@@ -17,7 +17,7 @@ const PropertiesHome = () => {
   },[dispatch])
   
   return(
-    <section className='flex flex-col mb-6'>
+    <section className='flex flex-col mb-2'>
       <div className="flex justify-between items-center">
         <h2 className='font-nunito font-semibold text-4xl'>Propiedades Destacadas</h2>
         <p className='font-nunito w-[50rem] text-color-gris'>Descubre propiedades que combinan lujo, confort y ubicación privilegiada. Desde apartamentos modernos en la ciudad hasta casas encantadoras en barrios tranquilos, ofrecemos una variedad de estilos y tamaños para satisfacer tus necesidades.</p>

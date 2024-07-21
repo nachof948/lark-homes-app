@@ -196,7 +196,7 @@ const SearchTab = () => {
             <option value='createdAt_asc'>Antiguas</option>
           </select>
         </div>
-        <button className="bg-color-azul font-nunito p-3 w-[10rem] mx-auto text-white uppercase rounded-lg hover:opacity-90">Buscar</button>
+        <button className="bg-color-azul font-nunito border border-color-azul transition-all duration-300 p-3 w-[10rem] mx-auto text-white uppercase rounded-lg hover:bg-transparent hover:text-color-azul">Buscar</button>
       </form>
     </section>
   );
