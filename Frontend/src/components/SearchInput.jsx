@@ -27,11 +27,11 @@ const SearchInput = ({ styleInput, styleButton, styleIcon }) => {
     }
   },[location.search])
 
-  const inputStyle = 'bg-slate-200 outline-none w-[45rem] py-6 px-14 rounded-full placeholder:text-color-negro'
-  const buttonStyle = 'absolute top-2 right-2 transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-4 px-12 rounded-full hover:bg-transparent hover:text-color-azul'
-  const iconStyle = 'absolute top-7 left-6'
+  const inputStyle = 'bg-slate-200 outline-none w-[70vw] py-3 px-10 rounded-full placeholder:text-color-negro placeholder:text-sm xl:w-[40vw] md:px-14 md:py-6 md:placeholder:text-base'
+  const buttonStyle = 'absolute top-1 right-2 transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-2 px-6 rounded-full hover:bg-transparent hover:text-color-azul md:px-12 md:py-4 md:top-2'
+  const iconStyle = 'absolute top-4 left-4 md:top-7 md:top-6'
   return(
-    <form className='relative' onSubmit={handleSubmit}>
+    <form className='relative w-[70vw] xl:w-[40vw]' onSubmit={handleSubmit}>
       <input 
         type="text" 
         placeholder='Buscar propiedad...' 

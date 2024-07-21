@@ -1,18 +1,16 @@
 import React from 'react';
 import CasaHero from '/Casa - Hero.jpg'
 import { SearchInput } from './SearchInput';
-import { Statistics } from './Statistics';
 
 const Hero = () => {
   return(
-    <section className='flex justify-between items-stretch'>
+    <section className='flex flex-col justify-between gap-5 items-center xl:flex-row xl:items-start '>
       <div className="flex flex-col font-nunito gap-10 ">
-        <h1 className=' font-bold text-7xl w-[45rem] leading-snug'>Lleve la felicidad de su familia a la casa de sus sueños </h1>
-        <p className='w-[45rem] leading-loose text-lg text-color-gris font-semibold'>Explora las mejores propiedades en tu área y descubre la casa de tus sueños. Compra, vende o renta con confianza y facilidad.</p>
+      <h1 className='font-bold text-3xl leading-snug sm:text-5xl md:text-6xl 2xl:text-7xl 2xl:leading-snug w-[70vw] xl:w-[38vw] xl:leading-snug text-center xl:text-left'>Lleve la felicidad de su familia a la casa de sus sueños</h1>
+        <p className='w-[40vw] leading-loose text-sm md:text-lg w-[70vw] text-center text-color-gris font-semibold xl:w-[38vw] xl:text-left'>Explora las mejores propiedades en tu área y descubre la casa de tus sueños. Compra, vende o renta con confianza y facilidad.</p>
         <SearchInput />
-        <Statistics />
       </div>
-      <img className='rounded-lg w-[45rem] h-[40rem]' src={CasaHero} alt="Casa" />
+      <img className='rounded-lg hidden h-[40rem] object-cover xl:w-[38vw] xl:block' src={CasaHero} alt="Casa" />
     </section>
   )
 }

@@ -16,7 +16,13 @@ export default {
         "color-negro":"#313131",
         "color-gris":"#6A6A6A",
         "color-gris-claro":"#FAFAFA"
-      }
+      },
+      screens: {
+        '2xl': '1400px',
+      },
+      lineHeight: {
+        snug: '1.500',
+      },
     },
   },
   plugins: [],
