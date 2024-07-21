@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoFooter from '../assets/Logo-Footer.png'
+import LogoFooter from '../../assets/Logo-Footer.png'
 import { Link } from 'react-router-dom';
 import { MdPlace } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";

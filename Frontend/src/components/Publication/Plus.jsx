@@ -3,7 +3,7 @@ import { FaRegSquarePlus } from "react-icons/fa6";
 import { FaSquarePlus } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { userAddPostLike } from '../redux/actions/user';
+import { userAddPostLike } from '../../redux/actions/user';
 import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 

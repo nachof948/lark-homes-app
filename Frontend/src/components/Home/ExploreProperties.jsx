@@ -1,8 +1,8 @@
 import React from 'react';
-import MoveHouse from '../../public/images/Move-your-dream.jpg'
-import YourDream1 from '../../public/images/Your-Dream-1.jpg'
-import YourDream2 from '../../public/images/Your-Dream-2.jpg'
-import YourDream3 from '../../public/images/Your-Dream-3.jpg'
+import MoveHouse from '../../../public/images/Your-Dream-1.jpg'
+import YourDream1 from '../../../public/images/Your-Dream-1.jpg'
+import YourDream2 from '../../../public/images/Your-Dream-2.jpg'
+import YourDream3 from '../../../public/images/Your-Dream-3.jpg'
 import { useNavigate } from 'react-router-dom';
 
 const ExploreProperties = () => {

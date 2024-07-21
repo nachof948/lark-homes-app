@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { publicationGet, publicationUpdate } from '../redux/actions/property';
 import { Input } from '../components/Input';
-import { UploadImageList } from '../components/UpdateImageList';
+import { UploadImageList } from '../components/CreatePublication/UpdateImageList';
 import { useNavigate} from 'react-router-dom';
 
 const UpdatePublication = () => {

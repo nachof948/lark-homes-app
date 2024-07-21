@@ -1,5 +1,5 @@
 import React from 'react';
-import dataCustomers from '../data/dataCustomers.json'
+import dataCustomers from '../../data/dataCustomers.json'
 
 const CustomersOpinion = () => {
   return(

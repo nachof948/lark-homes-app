@@ -1,6 +1,6 @@
 import React from 'react';
 import CasaHero from '/Casa - Hero.jpg'
-import { SearchInput } from './SearchInput';
+import { SearchInput } from '../SearchInput';
 
 const Hero = () => {
   return(

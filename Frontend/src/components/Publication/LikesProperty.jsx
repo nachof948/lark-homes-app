@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { BiSolidLike } from "react-icons/bi";
 import { BiLike } from "react-icons/bi";
-import { propertyLike } from '../redux/actions/property';
+import { propertyLike } from '../../redux/actions/property';
 
 const LikeProperty = ({list, userId}) => {
 

@@ -1,7 +1,7 @@
 import { getDownloadURL, getStorage, uploadBytesResumable, ref } from 'firebase/storage'
 import { useState, useEffect } from 'react'
-import { app } from '../firebase'
-import { DELETE_IMAGE } from '../constants'
+import { app } from '../../firebase'
+import { DELETE_IMAGE } from '../../constants'
 import { useDispatch } from 'react-redux'
 
 const UploadImageList = ({onImageChange, imageUrl}) => {

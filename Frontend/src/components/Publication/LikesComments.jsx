@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { commentLike } from '../redux/actions/comment';
+import { commentLike } from '../../redux/actions/comment';
 import { BiSolidLike } from "react-icons/bi";
 import { BiLike } from "react-icons/bi";
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { commentCreate, commentDelete, commentGet, commentEdit } from '../redux/actions/comment';
+import { commentCreate, commentDelete, commentGet, commentEdit } from '../../redux/actions/comment';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
-import useUserComments from '../hooks/useUserComment';
+import useUserComments from '../../hooks/useUserComment';
 import { LikesComments } from './LikesComments';
 
 const Comments = () => {

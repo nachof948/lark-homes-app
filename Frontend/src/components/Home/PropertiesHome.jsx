@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { CardProperty } from './CardProperty'
-import { publicationGetAll } from '../redux/actions/property';
+import { CardProperty } from '../CardProperty'
+import { publicationGetAll } from '../../redux/actions/property';
 
 
 const PropertiesHome = () => {
