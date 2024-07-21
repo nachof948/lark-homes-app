@@ -1,4 +1,4 @@
-import { GET_PUBLICATION, SEARCH_LISTING, DELETE_PUBLICATION, UPDATE_PUBLICATION, ALL_PROPERTIES } from "../../constants";
+import { GET_PUBLICATION, SEARCH_LISTING, DELETE_PUBLICATION, UPDATE_PUBLICATION, ALL_PROPERTIES, DELETE_COMMENTS_BY_PROPERTY } from "../../constants";
 import * as api from '../../api/index'
 
 export const publicationGet = (id) => async (dispatch) =>{
@@ -31,6 +31,7 @@ export const publicationDelete = (id) => async(dispatch) =>{
     try {
         await api.deletePublication(id)
         dispatch({type: DELETE_PUBLICATION, payload: id})
+        dispatch({type: DELETE_COMMENTS_BY_PROPERTY, payload: id})
     } catch (error) {
         console.log(error)
     }

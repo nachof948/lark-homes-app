@@ -1,4 +1,4 @@
-import { DELETE_COMMENT, GET_COMMENT, UPDATE_COMMENT} from "../../constants";
+import { DELETE_COMMENT, GET_COMMENT, UPDATE_COMMENT, DELETE_COMMENTS_BY_PROPERTY} from "../../constants";
 
 const initialState = {
     comments:[]
@@ -21,6 +21,11 @@ const commentReducer = (state = initialState, action) =>{
                 ...state,
                 comments: state.comments.map((comment) => comment._id === action.payload._id ? action.payload : comment)
             }
+        case DELETE_COMMENTS_BY_PROPERTY:
+            return{
+            ...state,
+            comments: state.comments.filter((comment) => comment.postId !== action.payload)
+        }
         default:
             return state
     }
