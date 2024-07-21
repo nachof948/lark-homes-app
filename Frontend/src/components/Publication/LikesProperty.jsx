@@ -3,13 +3,19 @@ import { useDispatch } from 'react-redux';
 import { BiSolidLike } from "react-icons/bi";
 import { BiLike } from "react-icons/bi";
 import { propertyLike } from '../../redux/actions/property';
+import { useNavigate } from 'react-router-dom';
 
 const LikeProperty = ({list, userId}) => {
-
+  const navegar = useNavigate()
   const dispatch = useDispatch()
 
   const handleLikeComment = (id) =>{
-    dispatch(propertyLike(id))
+    if(userId){
+      dispatch(propertyLike(id))
+    }
+    else{
+      navegar('/iniciar-sesion')
+    }
   }
 
   return(

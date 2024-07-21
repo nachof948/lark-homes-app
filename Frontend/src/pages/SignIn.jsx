@@ -40,6 +40,14 @@ const SignIn = () => {
     dispatch(signin(formData))
     navegar('/')
   }
+  
+  useEffect(() =>{
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  },[])
+
   return(
     <section className="w-full mx-auto mt-30 flex items-center justify-evenly" style={{backgroundImage:`url(${ImagenLogin})`, backgroundPosition:'center', height:'100vh'}}>
     <form className='flex flex-col gap-4 items-center bg-white py-6 px-3 rounded-md' onSubmit={handleSubmit} >

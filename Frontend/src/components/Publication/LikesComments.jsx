@@ -3,12 +3,19 @@ import { useDispatch } from 'react-redux';
 import { commentLike } from '../../redux/actions/comment';
 import { BiSolidLike } from "react-icons/bi";
 import { BiLike } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const LikesComments = ({comment, userId}) => {
   const dispatch = useDispatch()
+  const navegar= useNavigate()
 
   const handleLikeComment = (id) =>{
-    dispatch(commentLike(id))
+    if(userId){
+      dispatch(commentLike(id))
+    }
+    else{
+      navegar('/iniciar-sesion')
+    }
   }
 
   return(

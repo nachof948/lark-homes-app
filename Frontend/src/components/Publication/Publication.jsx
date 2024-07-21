@@ -15,8 +15,9 @@ import { LikeProperty } from '../Publication/LikesProperty';
 import ImageModal from '../Publication/ImageModal';
 
 const SeePublication = () => {
+  
   SwiperCore.use([Navigation]);
-  const navigate = useNavigate()
+  const navegar= useNavigate()
   const dispatch = useDispatch()
   const { list } = useSelector((state) => state.listing)
   const { userData } = useSelector((state) => state.auth)
@@ -27,9 +28,14 @@ const SeePublication = () => {
   const [initialSlide, setInitialSlide] = useState(0);
 
   const navigateToContact = () => {
-    const currentUrl = window.location.href;
-    localStorage.setItem('currentUrl', currentUrl);
-    navigate('/contacto')
+    if(user){
+      const currentUrl = window.location.href;
+      localStorage.setItem('currentUrl', currentUrl);
+      navegar('/contacto')
+    }
+    else{
+      navegar('/iniciar-sesion')
+    }
   }
 
   const openModal = (index) => {
@@ -82,7 +88,7 @@ const SeePublication = () => {
           </p>
           <CopiedUrl />
           <Plus />
-          <LikeProperty list={list} userId={user._id} />
+          <LikeProperty list={list} userId={user?._id} />
         </div>
         
         <p className="flex items-center mt-2 gap-2 text-slate-600 text-xl">

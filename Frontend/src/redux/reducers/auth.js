@@ -1,7 +1,7 @@
 
 import { AUTH, LOGOUT,ERROR, CLEAR_ERROR, UPDATE_USER, USER_DATA, DELETE_USER } from "../../constants"
 const initialState={
-    user: {},
+    user: null,
     error: false,
     userData: null
 }
@@ -15,7 +15,7 @@ const auth = (state= initialState, action) =>{
         case LOGOUT:
             return{
                 ...state,
-                user:{}
+                user:null
             }
         case ERROR:
             return{
@@ -40,7 +40,7 @@ const auth = (state= initialState, action) =>{
         case DELETE_USER:
             return {
                 ...state,
-                user: {},
+                user: null,
             };
         default:{
             return state

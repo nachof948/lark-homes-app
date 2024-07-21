@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegSquarePlus } from "react-icons/fa6";
 import { FaSquarePlus } from "react-icons/fa6";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userAddPostLike } from '../../redux/actions/user';
 import { ToastContainer, toast} from 'react-toastify'
@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Plus = () => {
   const dispatch = useDispatch()
+  const navegar = useNavigate()
   const { user } = useSelector((state) => state.auth);
   const { id } = useParams();
   const [addPost, setAddPost] = useState(null);
@@ -21,10 +22,13 @@ const Plus = () => {
   }, [user, id]);
 
   const agregarPublicacion = () => {
-    dispatch(userAddPostLike(id))
-    toast.success('Propiedad agregada en tu perfil')
+    if (user) {
+      dispatch(userAddPostLike(id));
+      toast.success('Propiedad agregada en tu perfil');
+    } else {
+      navegar('/iniciar-sesion');
+    }
   };
-
   return (
     <div onClick={agregarPublicacion} className="cursor-pointer">
       {addPost ? <FaSquarePlus className='text-4xl' /> : <FaRegSquarePlus className='text-4xl' />}
