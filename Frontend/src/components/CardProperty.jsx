@@ -12,7 +12,7 @@ const CardProperty = ({ listing }) => {
   return (
     <div className="flex flex-wrap  justify-center gap-11 items-center w-[100%] xl:justify-between xl:flex-nowrap lg:flex-wrap ">
       {listing?.map(propiedad => (
-        <div className="flex flex-col relative w-[65vw] xl:w-[20vw] lg:w-[40vw] font-nunito cursor-pointer mb-4" onClick={() => navigateToPublication(propiedad._id)} key={propiedad._id}>
+        <div className="flex flex-col relative w-[95%] xl:w-[20vw] lg:w-[40vw] font-nunito cursor-pointer mb-4" onClick={() => navigateToPublication(propiedad._id)} key={propiedad._id}>
           <div className="relative w-full h-[15rem] overflow-hidden rounded-lg">
             <img src={propiedad.imageUrls[0]} alt={propiedad.name} className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform hover:scale-110'/>
           </div>
