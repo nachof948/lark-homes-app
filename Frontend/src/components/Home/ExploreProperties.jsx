@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const ExploreProperties = () => {
   const navigate = useNavigate();
   const [selectImage, setSelectImage] = useState(YourDream1);
+  const [transformOrigin, setTransformOrigin] = useState('center center');
 
   const imgs = [
     {
@@ -25,7 +26,14 @@ const ExploreProperties = () => {
   
   const handleImage = (id) => {
     const imageSelect = imgs.find((img) => img.id === id);
-      setSelectImage(imageSelect.img);
+    setSelectImage(imageSelect.img);
+  };
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setTransformOrigin(`${x}% ${y}%`);
   };
 
   const navigateToSearch = () => {
@@ -33,8 +41,16 @@ const ExploreProperties = () => {
   };
 
   return (
-    <section className='flex flex-col-reverse items-center gap-7 mb-16 font-nunito h-fit lg:flex-row lg:items-start'>
-      <img className='rounded-lg w-[75vw] h-[20rem] md:h-[40rem] lg:w-[35vw] object-cover' src={selectImage} alt="Casa con pileta" />
+    <section className='flex flex-col-reverse items-center gap-9 mb-16 font-nunito h-fit lg:flex-row lg:items-start'>
+      <div className='relative overflow-hidden rounded-lg w-[75vw] h-[20rem] md:h-[30rem] xl:h-[35rem] xl:w-[50vw] md:w-[80vw]'>
+        <img 
+          className='w-full h-full object-cover transition-transform duration-300 cursor-zoom-in transform hover:scale-150' 
+          src={selectImage} 
+          alt="Casa con pileta" 
+          onMouseMove={handleMouseMove} 
+          style={{ transformOrigin }}
+        />
+      </div>
       <div className="flex flex-col gap-5 items-center text-center lg:items-start lg:text-left">
         <h1 className='text-4xl font-bold w-[75%] md:text-5xl xl:text-7xl '>Mudémonos a la casa familiar de tus sueños</h1>
         <p className='text-base text-color-gris lg:text-lg'>Encuentra el hogar perfecto para tu familia con nuestro equipo de expertos. Nos comprometemos a hacer realidad tus sueños, brindándote el mejor servicio y asesoramiento en cada paso del camino.</p>
