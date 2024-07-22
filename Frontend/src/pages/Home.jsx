@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <main className="mt-32 w-[85vw] mx-auto flex flex-col gap-24">
       <Hero />
-      <PropertiesHome />
+{/*       <PropertiesHome />
       <CustomersOpinion />
-      <ExploreProperties />
+      <ExploreProperties /> */}
     </main>
   );
 }
