@@ -85,12 +85,12 @@ const SearchTab = () => {
     });
   }, [location.search]);
 
-  const styleInput = 'text-md bg-slate-200 w-[24vw] py-4 px-10 rounded-full outline-none placeholder:text-md';
-  const styleButton = 'absolute top-2 right-80 transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-2 px-5 rounded-full hover:bg-transparent hover:text-color-azul';
-  const styleIcon = 'absolute top-5 left-3';
+  const styleInput = ' relative text-md left-6 bg-slate-200 w-[80vw] lg:w-[24vw] py-4 px-10 rounded-full outline-none placeholder:text-md';
+  const styleButton = 'absolute top-2 right-[-20%] w-fit transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-2 px-5 xl:right-[42%] rounded-full hover:bg-transparent hover:text-color-azul';
+  const styleIcon = 'absolute top-5 left-8 lg:left-3';
 
   return (
-    <section className='w-[25%] h-[74%] fixed top-32 left-36 z-10 overflow-y-auto overflow-x-hidden'>
+    <section className='w-[100%] h-[74%] fixed top-32 left-[7vw] z-10 overflow-y-auto overflow-x-hidden lg:w-[25%]'>
       <SearchInput styleInput={styleInput} styleButton={styleButton} styleIcon={styleIcon} />
       <form onSubmit={handleSubmit} className='mt-2 flex flex-col gap-4'>
         <div className="flex gap-4 flex-wrap items-center">

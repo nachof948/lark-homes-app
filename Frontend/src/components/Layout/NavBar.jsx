@@ -21,7 +21,7 @@ return (
       <Link to={'/'} className='font-bold text-xl lg:text-2xl cursor-pointer flex items-center font-nunito
     text-gray-800 gap-4'>
         <img className='w-14 h-14 object-contain lg:w-16 lg:h-16' src={Logo} alt="Lark Homes" />
-        <p>Lark Homes</p>
+        <p>NacFer Estate</p>
       </Link>
     
       <div onClick={()=>setOpen(prevOpen => !prevOpen)} className='text-3xl absolute right-8 top-8 cursor-pointer md:hidden'>

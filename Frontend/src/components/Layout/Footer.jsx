@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="w-[85vw] flex flex-col items-start gap-3 justify-between mx-auto p-4 md:flex-row md:items-start">
       <div className="flex items-center gap-4">
         <img src={LogoFooter} alt="Lark Homes" className='w-[3rem] h-[3rem] lg:w-[4rem] lg:h-[4rem] object-contain' />
-        <span className='font-bold text-xl lg:text-2xl'>Lark Homes</span>
+        <span className='font-bold text-xl lg:text-2xl'>NacFer Estate</span>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className='font-bold text-xl lg:text-2xl'>Links de Interes</h3>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-2">
             <MdEmail className='text-xl ml-1' />
-            <a href='mailto:larkhomes@hotmail.com' className='text-sm md:text-base' >larkhomes@hotmail.com</a>
+            <a href='mailto:larkhomes@hotmail.com' className='text-sm md:text-base' >nacferestate@hotmail.com</a>
           </div>
         </div>
       </div>
