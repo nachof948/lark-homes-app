@@ -3,7 +3,7 @@ import ImagenLogin from '../assets/Casa - 2.jpg'
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { clearError, signin } from "../redux/actions/auth"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { OAuth } from '../components/OAuth'
 import { validateEmail } from "../utils/validateEmail"
 
@@ -47,16 +47,22 @@ const SignIn = () => {
       behavior: 'smooth'
     })
   },[])
+  
+  const inputForm = 'outline-none p-3 text-color-azul bg-transparent placeholder:text-color-azul font-nunito text-lg border border-color-azul rounded-md w-[100%] sm:w-[27rem]'
 
   return(
     <section className="w-full mx-auto mt-30 flex items-center justify-evenly" style={{backgroundImage:`url(${ImagenLogin})`, backgroundPosition:'center', height:'100vh'}}>
-    <form className='flex flex-col gap-4 items-center bg-white py-6 px-3 rounded-md' onSubmit={handleSubmit} >
+    <form className='flex flex-col gap-4 items-center bg-white py-6 px-3 w-[90vw] sm:w-[30rem] rounded-md' onSubmit={handleSubmit} >
       <h1 className="font-semibold text-xl font-nunito">Iniciar Sesion</h1>
-      <Input type="text" placeholder='Email' name='email' onChange={handleChange} />
-      <Input type="password" placeholder='Contraseña' name='password' onChange={handleChange} />
+      <Input className={inputForm} type="text" placeholder='Email' name='email' onChange={handleChange} />
+      <Input className={inputForm} type="password" placeholder='Contraseña' name='password' onChange={handleChange} />
       {errors && <p className="text-red-600">{errors}</p>}
       {error && <p className="text-red-600">{error}</p>}
-      <button className='bg-color-azul w-full text-white font-nunito p-3 text-xl rounded-md hover:opacity-90'>Iniciar Sesion</button>
+      <button className='bg-color-azul w-[100%] sm:w-[95%] text-white font-nunito p-3 text-xl rounded-md hover:opacity-90'>Iniciar Sesion</button>
+      <div className="flex items-center gap-3">
+        <p >No tienes una cuenta?</p>
+        <Link to={'/registrarse'} className='text-color-azul'>Registrarse</Link>
+      </div>
       <OAuth />
     </form>
   </section>

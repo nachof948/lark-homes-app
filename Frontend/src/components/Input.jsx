@@ -9,7 +9,7 @@ const Input = ({...props}) => {
   return(
     <input
       type={props.type}
-      className={props.className || styleInput}
+      className={props.className || styleInput || inputForm}
       placeholder={props.placeholder}
       name={props.name}
       onChange={props.onChange}

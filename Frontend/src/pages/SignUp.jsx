@@ -54,13 +54,15 @@ const SignUp = () => {
     dispatch(signup(formData))
     navegar('/')
   }
+  const inputForm = 'outline-none p-3 text-color-azul bg-transparent placeholder:text-color-azul font-nunito text-lg border border-color-azul rounded-md w-[100%] sm:w-[27rem]'
+
   return(
     <section className="w-full mx-auto mt-30 flex items-center justify-evenly " style={{backgroundImage:`url(${ImagenRegistro})`, backgroundPosition:'center', height:'100vh'}}>
-      <form className='flex flex-col gap-4 items-center border border-white p-6 rounded-md bg-white'onSubmit={handleSubmit} >
+      <form className='flex flex-col gap-4 items-center bg-white py-6 px-3 w-[90vw] sm:w-[30rem] rounded-md'onSubmit={handleSubmit} >
         <UploadImage onImageChange={handleImageChange} />
-        <Input type="text" placeholder='Nombre Completo' name='username' onChange={handleChange} />
-        <Input type="text" placeholder='Email' name='email' onChange={handleChange} />
-        <Input type="password" placeholder='Contraseña' name='password' onChange={handleChange} />
+        <Input className={inputForm} type="text" placeholder='Nombre Completo' name='username' onChange={handleChange} />
+        <Input className={inputForm} type="text" placeholder='Email' name='email' onChange={handleChange} />
+        <Input className={inputForm} type="password" placeholder='Contraseña' name='password' onChange={handleChange} />
         <div className="flex items-center w-[10rem] gap-2 text-nowrap text-xl font-nunito text-color-azul">
           <Input type="checkbox" name='seller' onChange={handleChange} checked={formData.seller} />
           <p>Sos vendedor?</p>

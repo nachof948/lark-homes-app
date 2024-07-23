@@ -12,7 +12,7 @@ const CustomersOpinion = () => {
       </div>
       <div className='flex justify-center flex-wrap gap-8 pb-6 xl:flex-nowrap'>
         {dataCustomers.map(customer => (
-          <div className="flex flex-col w-full sm:w-[80%] md:w-[70%] xl:w-[25%] min-h-[18rem] border rounded-lg p-3 font-nunito gap-3 bg-color-gris-claro">
+          <div className="flex flex-col w-full sm:w-[80%] md:w-[70%] xl:w-[25%] xl:min-h-[18rem] border rounded-lg p-3 font-nunito gap-3 bg-color-gris-claro">
             <p className='flex-grow'>{customer.opinion}</p>
             <div className="flex items-center gap-3 mt-auto">
               <img src={customer.image} alt={customer.fullName} className='w-[4rem] h-[4rem] object-cover rounded-full' />
