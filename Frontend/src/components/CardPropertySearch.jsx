@@ -10,9 +10,9 @@ const CardPropertySearch = ({ listing }) => {
   }
 
   return (
-    <div className="flex flex-wrap gap-4 items-center ">
+    <div className="flex flex-col flex-wrap gap-4 items-center sm:flex-row ">
       {listing?.map(propiedad => (
-        <div className="flex flex-col relative left-10 w-[75vw] md:w-[50vw] xl:w-[19vw] font-nunito cursor-pointer mb-4" onClick={() => navigateToPublication(propiedad._id)} key={propiedad._id}>
+        <div className="flex flex-col relative left-3 sm:left-10 lg:left-7 w-[70vw] sm:w-[39.5vw] lg:w-[56vw] xl:w-[19vw] font-nunito cursor-pointer mb-4" onClick={() => navigateToPublication(propiedad._id)} key={propiedad._id}>
           <div className="relative w-full h-[15rem] overflow-hidden rounded-lg">
             <img src={propiedad.imageUrls[0]} alt={propiedad.name} className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform hover:scale-110'/>
           </div>

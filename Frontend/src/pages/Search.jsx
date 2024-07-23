@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { SearchTab } from '../components/SearchTab';
 import { CardPropertySearch } from '../components/CardPropertySearch';
-import { CiMenuBurger } from "react-icons/ci"; // Asegúrate de importar el ícono correctamente
+import { FaArrowCircleRight } from "react-icons/fa";
 
 const Search = () => {
   const { listing } = useSelector((state) => state.listing);
@@ -16,12 +16,12 @@ const Search = () => {
   }, []);
 
   return (
-    <main className='mt-32 mb-28 flex mx-auto justify-end w-[85vw] relative'>
+    <main className='mt-32 mb-22 flex mx-auto justify-end w-[85vw] relative'>
       {/* Icono de menú */}
       <div 
         onClick={() => setOpen(prevOpen => !prevOpen)} 
-        className='text-3xl absolute left-1 cursor-pointer lg:hidden z-40'>
-        <CiMenuBurger />
+        className='text-3xl absolute top-3 left-0 cursor-pointer lg:hidden z-40'>
+        <FaArrowCircleRight />
       </div>
       <div className="hidden lg:block">
         <SearchTab />

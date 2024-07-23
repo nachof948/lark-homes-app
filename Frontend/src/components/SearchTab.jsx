@@ -85,14 +85,14 @@ const SearchTab = () => {
     });
   }, [location.search]);
 
-  const styleInput = ' relative text-md left-6 bg-slate-200 w-[80vw] lg:w-[24vw] py-4 px-10 rounded-full outline-none placeholder:text-md';
-  const styleButton = 'absolute top-2 right-[-20%] w-fit transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-2 px-5 xl:right-[42%] rounded-full hover:bg-transparent hover:text-color-azul';
-  const styleIcon = 'absolute top-5 left-8 lg:left-3';
+  const styleInput = ' relative text-md   bg-slate-200 w-[70vw] lg:w-[24vw] lg:left-0 py-4 px-10 rounded-full outline-none placeholder:text-sm lg:placeholder:text-md';
+  const styleButton = 'absolute top-2 right-[1vw] lg:right-[66%] w-fit transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-2 px-5 xl:right-[42%] rounded-full hover:bg-transparent hover:text-color-azul';
+  const styleIcon = 'absolute top-5 left-4 lg:left-3';
 
   return (
-    <section className='w-[100%] h-[74%] fixed top-32 left-[7vw] z-10 overflow-y-auto overflow-x-hidden lg:w-[25%]'>
+    <section className='w-[75vw] h-[74%] fixed top-32 md:w-[100%] left-[15vw] lg:left-[7vw] z-10 overflow-y-auto overflow-x-hidden lg:w-[25%]'>
       <SearchInput styleInput={styleInput} styleButton={styleButton} styleIcon={styleIcon} />
-      <form onSubmit={handleSubmit} className='mt-2 flex flex-col gap-4'>
+      <form onSubmit={handleSubmit} className='mt-2 flex flex-col gap-4 w-[70vw] lg:w-[25vw]'>
         <div className="flex gap-4 flex-wrap items-center">
           <label className='text-lg font-semibold'>Tipo:</label>
           <div className="flex items-center gap-2 font-semibold">
@@ -103,7 +103,7 @@ const SearchTab = () => {
               checked={sideBarData.type === 'all'}
               onChange={handleChange}
             />
-            <span>Alquilar & Comprar</span>
+            <span className="text-sm">Alquilar & Comprar</span>
           </div>
           <div className=" flex items-center gap-2 font-semibold">
             <input
@@ -113,7 +113,7 @@ const SearchTab = () => {
               checked={sideBarData.type === 'rent'}
               onChange={handleChange}
             />
-            <span>Alquilar</span>
+            <span className="text-sm">Alquilar</span>
           </div>
           <div className=" flex items-center gap-2 font-semibold">
             <input
@@ -123,7 +123,7 @@ const SearchTab = () => {
               checked={sideBarData.type === 'sale'}
               onChange={handleChange}
             />
-            <span>Comprar</span>
+            <span className="text-sm">Comprar</span>
           </div>
           <div className=" flex items-center gap-2 font-semibold">
             <input
@@ -133,7 +133,7 @@ const SearchTab = () => {
               checked={sideBarData.offer}
               onChange={handleChange}
             />
-            <span>Oferta</span>
+            <span className="text-sm">Oferta</span>
           </div>
         </div>
         <div className="flex gap-4 flex-wrap items-center">
@@ -146,7 +146,7 @@ const SearchTab = () => {
               checked={sideBarData.parking}
               onChange={handleChange}
             />
-            <span>Estacionamiento</span>
+            <span className="text-sm">Estacionamiento</span>
           </div>
           <div className=" flex items-center gap-2 font-semibold">
             <input
@@ -156,7 +156,7 @@ const SearchTab = () => {
               checked={sideBarData.furnished}
               onChange={handleChange}
             />
-            <span>Amueblado</span>
+            <span className="text-sm">Amueblado</span>
           </div>
           
         </div>
@@ -170,7 +170,7 @@ const SearchTab = () => {
               checked={sideBarData.propertyType === 'apartment'}
               onChange={handleChange}
             />
-            <span>Departamentos</span>
+            <span className="text-sm">Departamentos</span>
           </div>
           <div className=" flex items-center gap-2 font-semibold">
             <input
@@ -180,13 +180,13 @@ const SearchTab = () => {
               checked={sideBarData.propertyType === 'house'}
               onChange={handleChange}
             />
-            <span>Casas</span>
+            <span className="text-sm">Casas</span>
           </div>
         </div>
         <div className="flex items-center gap-3">
           <label className='text-lg font-semibold'>Ordenar</label>
           <select name="sort_order"
-            className="border rounded-lg p-3 cursor-pointer"
+            className="border rounded-lg p-3 cursor-pointer w-[6rem] md:w-[11rem] " 
             onChange={handleChange}
             defaultValue={'createdAt_desc'}
           >
@@ -196,7 +196,7 @@ const SearchTab = () => {
             <option value='createdAt_asc'>Antiguas</option>
           </select>
         </div>
-        <button className="bg-color-azul font-nunito border border-color-azul transition-all duration-300 p-3 w-[10rem] mx-auto text-white uppercase rounded-lg hover:bg-transparent hover:text-color-azul">Buscar</button>
+        <button className="bg-color-azul font-nunito border border-color-azul transition-all duration-300 p-3 w-[10rem] lg:mx-auto text-white uppercase rounded-lg hover:bg-transparent hover:text-color-azul">Buscar</button>
       </form>
     </section>
   );

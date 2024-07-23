@@ -27,7 +27,7 @@ const SearchInput = ({ styleInput, styleButton, styleIcon }) => {
     }
   },[location.search])
 
-  const inputStyle = 'bg-slate-200 outline-none w-[75vw] py-3 px-10 rounded-full placeholder:text-color-negro placeholder:text-[0.9rem] xl:w-[40vw] md:px-14 md:py-6 md:placeholder:text-base sm:w-[70vw]'
+  const inputStyle = 'bg-slate-200 left-0 outline-none w-[75vw] py-3 px-10 rounded-full placeholder:text-color-negro placeholder:text-[0.9rem] xl:w-[40vw] md:px-14 md:py-6 md:placeholder:text-base sm:w-[70vw]'
   const buttonStyle = 'absolute top-1 -right-3 transition-all duration-300 font-semibold bg-color-azul border border-color-azul text-white font-nunito py-2 px-4 rounded-full hover:bg-transparent hover:text-color-azul md:px-12 md:py-4 md:top-2 sm:px-6 sm:right-4'
   const iconStyle = 'absolute top-4 left-4 md:top-7 md:top-6'
   return(
