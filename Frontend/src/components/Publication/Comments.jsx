@@ -59,7 +59,7 @@ const Comments = () => {
           <textarea
             name="content"
             placeholder='Escribi tu comentario...'
-            className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[50rem] h-[10rem] p-3'
+            className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[50vw] h-[10rem] p-3'
             onChange={(e) => setContent(e.target.value)}
             value={content}
           />

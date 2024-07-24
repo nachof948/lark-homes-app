@@ -31,7 +31,7 @@ const Plus = () => {
   };
   return (
     <div onClick={agregarPublicacion} className="cursor-pointer">
-      {addPost ? <FaSquarePlus className='text-4xl' /> : <FaRegSquarePlus className='text-4xl' />}
+      {addPost ? <FaSquarePlus className='text-2xl lg:text-4xl ' /> : <FaRegSquarePlus className='text-2xl lg:text-4xl ' />}
       <ToastContainer
         position="top-center"
         autoClose={1100}

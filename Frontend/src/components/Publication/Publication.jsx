@@ -63,7 +63,7 @@ const SeePublication = () => {
         {list?.imageUrls?.map((url, index) => (
           <SwiperSlide key={url}>
             <img
-              className="h-[600px] w-full object-cover cursor-pointer"
+              className=" h-[20rem] lg:h-[600px] w-full object-cover cursor-pointer"
               src={url}
               alt="Casa"
               onClick={() => openModal(index)}
@@ -72,23 +72,25 @@ const SeePublication = () => {
         ))}
       </Swiper>
       <div className="flex flex-col max-w-4xl p-3 mx-auto my-7 gap-4 ">
-        <Link to={`/perfil/${userData?._id}`} className="flex items-center gap-2">
-          <p>Publicada por <span className='font-semibold font-nunito'>{userData?.username}</span></p>
+        <Link to={`/perfil/${userData?._id}`} className="flex items-center gap-2 font-nunito ">
+          <p className='text-sm md:text-base'>Publicada por <span className='font-semibold text-sm md:text-base'>{userData?.username}</span></p>
           <img src={userData?.imageProfile} alt={userData?.username} className='w-[2rem] rounded-full' />
         </Link>
-        <div className="flex items-center gap-3">
-          <p className="text-3xl font-semibold">
+        <div className="flex flex-col items-start sm:items-center gap-3 sm:flex-row">
+          <p className="text-xl lg:text-3xl font-semibold">
             {list?.name}{' - '}
             US$
             {list?.offer 
               ? list?.discountPrice?.toLocaleString('en-US')
               : list?.regularPrice?.toLocaleString('en-US')}
             {list?.type === 'rent' && '/mes'}
-            {' - '}
           </p>
+          <div className="flex items-center gap-3">
           <CopiedUrl />
           <Plus />
           <LikeProperty list={list} userId={user?._id} />
+          </div>
+
         </div>
         
         <p className="flex items-center mt-2 gap-2 text-slate-600 text-xl">
@@ -96,18 +98,18 @@ const SeePublication = () => {
           {list?.address}
         </p>
         <div className="flex items-center gap-4">
-          <p className="bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md">
+          <p className="bg-red-900 px-4 py-1 text-xs sm:text-sm  lg:text-base text-white text-center rounded-lg">
             {list?.type === 'rent' ? 'Para alquilar' : 'Para vender'}
           </p>
           {list?.offer && (
-            <p className="bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md">
+            <p className="bg-green-900 px-4 text-white text-center rounded-md">
               US${+list?.regularPrice - +list?.discountPrice} OFF
             </p>
           )}
-          <button onClick={navigateToContact} className='bg-color-azul text-white font-nunito px-4 py-1 rounded-lg'>Quiero ver esta propiedad</button>
+          <button onClick={navigateToContact} className='bg-color-azul text-white font-nunito px-2 text-xs sm:text-sm lg:text-base  lg:px-4 py-1 rounded-lg'>Quiero ver esta propiedad</button>
         </div>
         <div>
-          <p className="text-lg text-slate-800"><span className="font-semibold text-xl">Descripción{' '}-</span>{' '}{list?.description}</p>
+          <p className=" text-md lg:text-lg text-slate-800"><span className="font-semibold text-xl">Descripción{' '}-</span>{' '}{list?.description}</p>
         </div>
         <ul className="flex items-center flex-wrap gap-5 whitespace-nowrap text-green-700 font-semibold">
           <li className="flex items-center gap-2">

@@ -21,9 +21,9 @@ const LikeProperty = ({list, userId}) => {
   return(
     <div className="flex items-center gap-1">
       {list?.likes?.includes(userId) ? (
-        <BiSolidLike className='text-2xl cursor-pointer' onClick={() => handleLikeComment(list?._id)} />
+        <BiSolidLike className='text-xl lg:text-2xl  cursor-pointer' onClick={() => handleLikeComment(list?._id)} />
       ): (
-        <BiLike className='text-2xl cursor-pointer' onClick={() => handleLikeComment(list?._id)} />
+        <BiLike className='text-xl lg:text-2xl  cursor-pointer' onClick={() => handleLikeComment(list?._id)} />
       )}
       {list?.likes?.length <= 1 ? (
         <p className='font-semibold'>{list?.likes?.length} Like</p>

@@ -14,7 +14,7 @@ const CopiedUrl = () => {
   return(
     <div className="">
       <CiShare2
-      className='text-4xl cursor-pointer hover:text-color-azul relative'
+      className='text-2xl lg:text-4xl cursor-pointer hover:text-color-azul relative'
       onClick={handleCopied}
       />
         <ToastContainer
