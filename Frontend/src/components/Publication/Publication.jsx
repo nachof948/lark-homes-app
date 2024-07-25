@@ -13,6 +13,7 @@ import { Comments } from '../Publication/Comments';
 import { Plus } from '../Publication/Plus';
 import { LikeProperty } from '../Publication/LikesProperty';
 import ImageModal from '../Publication/ImageModal';
+import { useScrollToTop } from '../../hooks/useScrollTo'
 
 const SeePublication = () => {
   
@@ -26,6 +27,8 @@ const SeePublication = () => {
   
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [initialSlide, setInitialSlide] = useState(0);
+
+  useScrollToTop()
 
   const navigateToContact = () => {
     if(user){
@@ -50,12 +53,6 @@ const SeePublication = () => {
     dispatch(userGet(list?.userRef))
   }, [dispatch, list?.userRef])
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }, [])
 
   return(
     <main className='mt-[7rem] bg-white'>
@@ -93,7 +90,7 @@ const SeePublication = () => {
 
         </div>
         
-        <p className="flex items-center mt-2 gap-2 text-slate-600 text-xl">
+        <p className="flex items-center mt-2 gap-2 text-slate-600 text-md md:text-xl">
           <FaMapMarkedAlt className="text-green-700 text-2xl" />
           {list?.address}
         </p>

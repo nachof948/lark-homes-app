@@ -51,45 +51,47 @@ const Comments = () => {
       console.log(error);
     }
   };
+  
+  const buttonStyle ='bg-color-azul text-white border border-color-azul font-nunito p-2 text-sm rounded-md uppercase transition-all duration-300 hover:bg-transparent hover:text-color-azul lg:text-base lg:p-3'
 
   return (
     <div className='flex flex-col'>
       {user ? (
-        <form className="mx-auto flex items-center gap-3" onSubmit={handleSubmit}>
+        <form className="flex flex-col items-start gap-3" onSubmit={handleSubmit}>
           <textarea
             name="content"
             placeholder='Escribi tu comentario...'
-            className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[50vw] h-[10rem] p-3'
+            className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[90vw] lg:w-[50vw] h-[10rem] p-3'
             onChange={(e) => setContent(e.target.value)}
             value={content}
           />
-          <button className='bg-color-azul text-white font-nunito p-3 rounded-md uppercase'>Enviar</button>
+          <button className={buttonStyle}>Enviar</button>
         </form>
       ) : (
         <p className="mx-auto text-center font-nunito text-red-500">Debes estar logueado para dejar un comentario.</p>
       )}
       <div className="mt-5 flex flex-col gap-3">
         {commentsWithUserData?.map((comment) => (
-          <div key={comment._id} className="flex flex-col items-start gap-3 border p-3 border-color-azul rounded-md">
+          <div key={comment._id} className="flex flex-col items-start gap-3 border p-2 sm:p-3 w-[90vw] lg:w-[50vw] border-color-azul rounded-md">
             {editingCommentId === comment._id ? (
               <div>
                 <textarea
-                  className='font-nunito outline-none resize-none border border-color-azul rounded-md w-full h-[10rem] p-3'
+                  className='font-nunito outline-none resize-none border border-color-azul rounded-md w-[85vw] lg:w-[44vw] h-[10rem] p-3'
                   value={editingContent}
                   onChange={(e) => setEditingContent(e.target.value)}
                 />
                 <div className="flex items-center gap-3">
-                  <button className='bg-color-azul text-white font-nunito p-2 rounded-md uppercase' onClick={() => handleUpdateComment(comment._id, editingContent)}>
+                  <button className={buttonStyle} onClick={() => handleUpdateComment(comment._id, editingContent)}>
                     Actualizar
                   </button>
-                  <button className='bg-color-azul text-white font-nunito p-2 rounded-md uppercase' onClick={handleCancel}>
+                  <button className={buttonStyle} onClick={handleCancel}>
                     Cancelar
                   </button>
                 </div>
               </div>
             ) : (
               <>
-                <p className='font-nunito'>{comment.content}</p>
+                <p className='font-nunito text-sm sm:text-base'>{comment.content}</p>
                 {comment.userRef === user?._id && (
                   <div className="flex gap-3 items-center">
                     <button onClick={() => handleDeleteComment(comment._id)} className='text-red-700 text-xl'>
@@ -101,10 +103,10 @@ const Comments = () => {
                   </div>
                 )}
                 {comment.userData ? (
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 text-sm sm:text-base">
                     <Link to={`/perfil/${comment.userRef}`} className="flex items-center gap-2">
                       <p>Comentario realizado por <span className='font-bold font-nunito'>{comment.userData.username} </span></p>
-                      <img className='w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
+                      <img className='w-[1.5rem] sm:w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
                     </Link>
                     <LikesComments comment={comment} userId={user?._id} commentId={comment._id} />
                   </div>

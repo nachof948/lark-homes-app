@@ -3,17 +3,13 @@ import { useSelector } from 'react-redux';
 import { SearchTab } from '../components/SearchTab';
 import { CardPropertySearch } from '../components/CardPropertySearch';
 import { FaArrowCircleRight } from "react-icons/fa";
+import { useScrollToTop } from '../hooks/useScrollTo'
 
 const Search = () => {
   const { listing } = useSelector((state) => state.listing);
   const [open, setOpen] = useState(false); // Agregar estado para manejar la apertura del menú
+  useScrollToTop()
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, []);
 
   return (
     <main className='mt-32 mb-22 flex mx-auto justify-end w-[85vw] relative'>

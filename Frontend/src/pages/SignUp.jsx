@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { clearError, signup } from '../redux/actions/auth'
 import { validateEmail } from '../utils/validateEmail'
 import { OAuth } from '../components/OAuth'
-
+import { useScrollToTop } from '../hooks/useScrollTo'
 
 const SignUp = () => {
   const { error } = useSelector((state) => state.auth)
@@ -22,9 +22,12 @@ const SignUp = () => {
     imageProfile:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
   })
   
+  useScrollToTop()
+
   useEffect(() =>{
     dispatch(clearError())
   },[dispatch])
+
 
   const handleImageChange = (imageUrl) =>{
     setFormData({

@@ -3,8 +3,10 @@ import { Hero } from '../components/Home/Hero';
 import { PropertiesHome } from '../components/Home/PropertiesHome';
 import { CustomersOpinion } from '../components/Home/CustomersOpinion';
 import { ExploreProperties } from '../components/Home/ExploreProperties';
+import { useScrollToTop } from '../hooks/useScrollTo'
 
 const Home = () => {
+  useScrollToTop()
   return (
     <main className="mt-32 w-[85vw] mx-auto flex flex-col gap-24">
       <Hero />

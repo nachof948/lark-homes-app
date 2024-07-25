@@ -21,14 +21,14 @@ const LikesComments = ({comment, userId}) => {
   return(
     <div className="flex items-center gap-1">
       {comment?.likes.includes(userId) ? (
-        <BiSolidLike className='text-2xl cursor-pointer' onClick={() => handleLikeComment(comment?._id)} />
+        <BiSolidLike className='text-md sm:text-2xl cursor-pointer' onClick={() => handleLikeComment(comment?._id)} />
       ): (
-        <BiLike className='text-2xl cursor-pointer' onClick={() => handleLikeComment(comment?._id)} />
+        <BiLike className='text-md sm:text-2xl cursor-pointer' onClick={() => handleLikeComment(comment?._id)} />
       )}
       {comment?.likes.length <= 1 ? (
-        <p className='font-semibold'>{comment?.likes.length} Like</p>
+        <p className='font-semibold text-xs sm:text-base'>{comment?.likes.length} Like</p>
         ) :
-        <p className='font-semibold'>{comment?.likes.length} Likes</p>}
+        <p className='font-semibold text-xs sm:text-base'>{comment?.likes.length} Likes</p>}
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { clearError, signin } from "../redux/actions/auth"
 import { useNavigate, Link } from "react-router-dom"
 import { OAuth } from '../components/OAuth'
 import { validateEmail } from "../utils/validateEmail"
+import { useScrollToTop } from '../hooks/useScrollTo'
 
 
 const SignIn = () => {
@@ -17,6 +18,8 @@ const SignIn = () => {
     email:'',
     password:''
   })
+  
+  useScrollToTop()
 
   const handleChange = (e) =>{
     setFormData({
@@ -40,14 +43,7 @@ const SignIn = () => {
     dispatch(signin(formData))
     navegar('/')
   }
-  
-  useEffect(() =>{
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  },[])
-  
+
   const inputForm = 'outline-none p-3 text-color-azul bg-transparent placeholder:text-color-azul font-nunito text-lg border border-color-azul rounded-md w-[100%] sm:w-[27rem]'
 
   return(
