@@ -59,13 +59,21 @@ const CustomProfile = () => {
   return (
     <>
       <p className="text-3xl font-nunito text-center">Perfil de {formData.username}</p>
-      <div className="mt-5 flex gap-4">
-        <form className="flex gap-4 text-lg font-nunito" onSubmit={handleSubmit}>
+      <div className="mt-5 flex flex-col gap-4 lg:max-h-[30rem] lg:flex-row">
+        <form className="flex flex-col items-center gap-4 text-lg font-nunito sm:flex-row sm:items-start" onSubmit={handleSubmit}>
+          <div className="flex flex-col items-start gap-5">
           <UploadImage
             onImageChange={handleImageChange}
             imageProfile={formData.imageProfile}
-            className={'w-[25rem] h-[30rem] object-cover rounded-md cursor-pointer'}
+            className={' w-[10rem] h-[10rem] sm:w-[35vw] sm:h-[25.5rem] object-cover rounded-full sm:rounded-md cursor-pointer'}
           />
+            <div className="flex">
+              <button onClick={() => eliminarCuenta(user._id)} className=" bg-red-500 p-3 text-lg rounded-md text-white hover:opacity-90">
+                Eliminar mi cuenta
+              </button>
+            </div>
+          </div>
+
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
               <label>Nombre Completo</label>
@@ -88,7 +96,7 @@ const CustomProfile = () => {
                 value={formData.biography}
               />
             </div>
-            <button className="bg-green-700 p-3 rounded-md text-white hover:opacity-90">Actualizar</button>
+            <button className="bg-green-700 p-3 mt-2 rounded-md text-lg text-white hover:opacity-90">Actualizar</button>
             <ToastContainer
               position="top-center"
               autoClose={1100}
@@ -122,21 +130,19 @@ const CustomProfile = () => {
           </div>
         )}
         {user?.seller && (
-          <div className="text-xl font-nunito flex flex-col">
-            <p>Mis Publicaciones</p>
+          <div className="text-xl font-nunito flex flex-col items-center">
+            <p className='text-center sm:text-left'>Mis Publicaciones</p>
             <ListPublicationUser id={user?._id} />
-            <Link className="bg-red-700 text-white p-3 rounded-md hover:opacity-90 w-fit" to={'/crear-publicacion'}>
+            <div className="mt-9 mx-auto">
+            <Link className="bg-red-700 text-white px-3 py-[14px] text-lg rounded-md hover:opacity-90 w-fit" to={'/crear-publicacion'}>
               Crear una nueva publicación
             </Link>
+            </div>
           </div>
         )}
       </div>
-      <button onClick={cerrarSesion} className="mr-6 bg-green-500 p-2 rounded-md text-white hover:opacity-90">
-        Cerrar Sesión
-      </button>
-      <button onClick={() => eliminarCuenta(user._id)} className="mr-6 bg-red-500 p-2 rounded-md text-white hover:opacity-90">
-        Eliminar mi cuenta
-      </button>
+      
+
       {!user?.seller && (
         <form>
           <div className="flex items-center w-[10rem] gap-2 text-nowrap text-xl font-nunito text-color-azul">

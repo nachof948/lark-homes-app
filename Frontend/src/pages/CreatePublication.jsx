@@ -4,7 +4,7 @@ const CreatePublication = () => {
 
   return(
     <>
-    <CreatePublicationProperty />
+      <CreatePublicationProperty />
     </>
   )
 }
