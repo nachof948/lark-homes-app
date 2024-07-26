@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { logout } from '../../redux/actions/auth';
 import { Input } from '../../components/Input';
 import { userDelete, userUpdate } from '../../redux/actions/user';
 import { UploadImage } from '../../components/UploadImage';
@@ -24,11 +23,6 @@ const CustomProfile = () => {
     imageProfile: user?.imageProfile,
     seller: user?.seller || false, // Si user?.seller es undefined o null, se asigna false por defecto
   });
-
-  const cerrarSesion = () => {
-    dispatch(logout());
-    navegar('/');
-  };
 
   const eliminarCuenta =  (id) =>{
       dispatch(userDelete(id))
@@ -59,18 +53,29 @@ const CustomProfile = () => {
   return (
     <>
       <p className="text-3xl font-nunito text-center">Perfil de {formData.username}</p>
-      <div className="mt-5 flex flex-col gap-4 lg:max-h-[30rem] lg:flex-row">
-        <form className="flex flex-col items-center gap-4 text-lg font-nunito sm:flex-row sm:items-start" onSubmit={handleSubmit}>
+      <div className="mt-5 flex flex-col gap-6 lg:max-h-[fit] lg:flex-row">
+        <form className="flex flex-col items-center gap-6 text-lg font-nunito sm:flex-row sm:items-start" onSubmit={handleSubmit}>
           <div className="flex flex-col items-start gap-5">
           <UploadImage
             onImageChange={handleImageChange}
             imageProfile={formData.imageProfile}
-            className={' w-[10rem] h-[10rem] sm:w-[35vw] sm:h-[25.5rem] object-cover rounded-full sm:rounded-md cursor-pointer'}
+            className={' w-[10rem] h-[10rem] object-cover rounded-full cursor-pointer'}
           />
-            <div className="flex">
-              <button onClick={() => eliminarCuenta(user._id)} className=" bg-red-500 p-3 text-lg rounded-md text-white hover:opacity-90">
+            <div className="flex flex-col gap-3">
+              <button type='button' onClick={() => eliminarCuenta(user._id)} className=" bg-red-500 p-3 text-lg rounded-md text-white hover:opacity-90">
                 Eliminar mi cuenta
               </button>
+              {!user?.seller && (
+                <div className="flex items-center gap-2 text-nowrap text-xl font-nunito text-color-azul">
+                  <button 
+                    type='button' 
+                    onClick={() => setFormData({ ...formData, seller: true })} 
+                    className="bg-green-500 w-[11rem] p-3 text-lg rounded-md text-white hover:opacity-90"
+                  >
+                    Ser vendedor
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -113,25 +118,29 @@ const CustomProfile = () => {
         </form>
         {!user?.seller && (
           <div className='flex flex-col'>
-            <h2>Propiedades guardadas</h2>
+            <h2 className='text-xl font-semibold'>Propiedades guardadas</h2>
             <div className="flex items-center gap-3">
-            {properties.map(propiedad => (
-              <Link to={`/publicacion/${propiedad?._id}`} key={propiedad?._id}>
-                <div className="relative w-[15rem] h-[10rem] overflow-hidden rounded-lg">
-                  <img 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform hover:scale-110" 
-                    src={propiedad?.imageUrls} 
-                    alt={propiedad?.title} 
-                  />
-                </div>
-              </Link>
-            ))}
+              {!properties?.length ? (
+                <h2 className='text-xl font-semibold mt-4 text-color-azul'>No tienes propiedades guardadas</h2>
+              ) : (
+                properties.map(propiedad => (
+                  <Link to={`/publicacion/${propiedad?._id}`} key={propiedad?._id}>
+                    <div className="relative w-[15rem] h-[10rem] overflow-hidden rounded-lg">
+                      <img 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform hover:scale-110" 
+                        src={propiedad?.imageUrls} 
+                        alt={propiedad?.title} 
+                      />
+                    </div>
+                  </Link>
+                ))
+              )}
             </div>
           </div>
         )}
         {user?.seller && (
           <div className="text-xl font-nunito flex flex-col items-center">
-            <p className='text-center sm:text-left'>Mis Publicaciones</p>
+            <p className='font-semibold text-center sm:text-left'>Mis Publicaciones</p>
             <ListPublicationUser id={user?._id} />
             <div className="mt-9 mx-auto">
             <Link className="bg-red-700 text-white px-3 py-[14px] text-lg rounded-md hover:opacity-90 w-fit" to={'/crear-publicacion'}>
@@ -143,14 +152,6 @@ const CustomProfile = () => {
       </div>
       
 
-      {!user?.seller && (
-        <form>
-          <div className="flex items-center w-[10rem] gap-2 text-nowrap text-xl font-nunito text-color-azul">
-            <Input type="checkbox" name="seller" checked={formData.seller} onChange={handleChange} />
-            <p>Quiero ser vendedor</p>
-          </div>
-        </form>
-      )}
     </>
   );
 };
