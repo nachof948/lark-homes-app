@@ -1,4 +1,4 @@
-import { DELETE_COMMENT, GET_COMMENT, UPDATE_COMMENT, DELETE_COMMENTS_BY_PROPERTY} from "../../constants";
+import { DELETE_COMMENT, GET_COMMENT, UPDATE_COMMENT, DELETE_COMMENTS_BY_PROPERTY, CLEAN_COMMENTS} from "../../constants";
 
 const initialState = {
     comments:[]
@@ -26,6 +26,11 @@ const commentReducer = (state = initialState, action) =>{
             ...state,
             comments: state.comments.filter((comment) => comment.postId !== action.payload)
         }
+        case CLEAN_COMMENTS:
+            return{
+                ...state,
+                comments:[]
+            }
         default:
             return state
     }

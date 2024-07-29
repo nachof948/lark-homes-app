@@ -6,6 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import useUserComments from '../../hooks/useUserComment';
 import { LikesComments } from './LikesComments';
+import { CLEAN_COMMENTS } from '../../constants';
 
 const Comments = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,13 @@ const Comments = () => {
 
   const commentsWithUserData = useUserComments(comments);
 
-  useEffect(() => {
-    dispatch(commentGet(id));
-  }, [dispatch, id]);
+    useEffect(() => {
+      dispatch(commentGet(id));
+      return () => {
+        dispatch({ type: CLEAN_COMMENTS });
+      };
+    }, [dispatch, id]);
+
 
   const handleDeleteComment = (commentId) => {
     dispatch(commentDelete(commentId));
@@ -104,10 +109,8 @@ const Comments = () => {
                 )}
                 {comment.userData ? (
                   <div className="flex items-center gap-4 text-sm sm:text-base">
-                    <Link to={`/perfil/${comment.userRef}`} className="flex items-center gap-2">
                       <p>Comentario realizado por <span className='font-bold font-nunito'>{comment.userData.username} </span></p>
                       <img className='w-[1.5rem] sm:w-[3rem] rounded-full' src={comment.userData.imageProfile} alt="profile" />
-                    </Link>
                     <LikesComments comment={comment} userId={user?._id} commentId={comment._id} />
                   </div>
                 ) : (

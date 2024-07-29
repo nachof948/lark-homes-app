@@ -7,12 +7,12 @@ import SwiperCore from 'swiper';
 import { Navigation, EffectFade } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import { FaBath, FaBed, FaChair, FaMapMarkedAlt, FaParking } from 'react-icons/fa';
-import { CopiedUrl } from '../Publication/CopiedUrl'
+import { CopiedUrl } from './CopiedUrl'
 import { userGet } from '../../redux/actions/user';
-import { Comments } from '../Publication/Comments';
-import { Plus } from '../Publication/Plus';
-import { LikeProperty } from '../Publication/LikesProperty';
-import ImageModal from '../Publication/ImageModal';
+import { Comments } from './Comments';
+import { Plus } from './Plus';
+import { LikeProperty } from './LikesProperty';
+import ImageModal from './ImageModal';
 import { useScrollToTop } from '../../hooks/useScrollTo'
 
 const SeePublication = () => {

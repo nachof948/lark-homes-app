@@ -93,7 +93,7 @@ const CustomProfile = () => {
               <Input type="text" name="phone" onChange={handleChange} value={formData.phone} />
             </div>
             <div className="flex flex-col">
-              <label>Biografía</label>
+              <label>Experiencia</label>
               <textarea
                 className="border border-color-azul rounded-md resize-none outline-none p-3 text-color-azul"
                 name="biography"

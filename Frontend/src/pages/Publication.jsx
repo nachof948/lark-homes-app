@@ -1,4 +1,4 @@
-import { SeePublication } from "../components/Publication/Publication"
+import { SeePublication } from "../components/Publication/SeePublication"
 
 
 const Publication = () => {

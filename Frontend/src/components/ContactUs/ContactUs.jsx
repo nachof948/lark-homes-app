@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ImagenLogin from '../../assets/Casa - 2.jpg';
 import emailjs from 'emailjs-com';
+import { useScrollToTop } from '../../hooks/useScrollTo' 
+
 
 const ContactWithUs = () => {
-  
+  useScrollToTop()
   const [propertyUrl, setPropertyUrl] = useState('');
   const mensaje = `Hola quiero ver la siguiente propiedad: `
   useEffect(() => {
@@ -36,7 +38,7 @@ const ContactWithUs = () => {
   return (
     <section className='mt-5 flex flex-col items-center justify-center font-nunito' style={{ backgroundImage: `url(${ImagenLogin})`, backgroundPosition: 'center', height: '100vh' }}>
       <form className='w-full max-w-md p-8 mt-16 bg-white shadow-lg rounded-xl' onSubmit={handleSubmit}>
-        <h1 className='text-5xl font-bold text-center mb-4'>Contactate con <span className='text-color-azul'>Lark Homes</span></h1>
+        <h1 className='text-5xl font-bold text-center mb-4'>Contactate con <span className='text-color-azul'>Nac Fer Estate</span></h1>
         <div className='mb-4'>
           <label className='block text-gray-700 text-lg font-bold mb-2'>Nombre Completo</label>
           <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' name='user_name' type='text' placeholder='Nombre y Apellido' required />

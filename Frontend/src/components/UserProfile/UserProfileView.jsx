@@ -13,11 +13,14 @@ const UserProfileView = () => {
   },[])
 
   return(
-    <>
-      <h1>{userData.username}</h1>
-      <img src={userData.imageProfile} alt={userData.username} />
-      <p>{userData.biography}</p>
-    </>
+    <section className='flex flex-col items-center gap-4'>
+      <h1 className='font-semibold text-3xl text-center'>Vendedor <span className='text-color-azul'>{userData.username}</span></h1>
+      <img className='w-[10rem] rounded-full' src={userData.imageProfile} alt={userData.username} />
+      <div className="flex flex-col items-center">
+        <h2 className='font-semibold text-2xl'>Experiencia</h2>
+        <p className=' w-[75vw] xl:w-[50vw] text-center'>{userData.biography}</p>
+      </div>
+    </section>
   )
 }
 

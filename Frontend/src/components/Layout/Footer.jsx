@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="flex flex-col">
           <Link to={'/search'} className='underline'>Propiedades</Link>
           <Link to={'/sobre-nosotros'} className='underline'>Sobre Nosotros</Link>
-          <Link to={'/contacto'} className='underline'>Contactanos</Link>
+          <Link to={'/servicios'} className='underline'>Servicios</Link>
         </div>
       </div>
       <div className="flex flex-col gap-2">

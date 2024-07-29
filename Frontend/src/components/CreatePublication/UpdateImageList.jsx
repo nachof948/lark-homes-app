@@ -77,10 +77,10 @@ const UploadImageList = ({onImageChange, imageUrl}) => {
 
   return(
     <div className='flex flex-col gap-3'>
-    <div className='flex items-start gap-4'>
+    <div className='flex items-start gap-2 md:gap-4'>
       <input 
         type="file" 
-        className='p-3 border border-color-azul rounded-md h-fit'
+        className='w-[60vw] sm:w-[30vw] p-3 border border-color-azul rounded-md h-fit'
         name='imageUrls'
         accept='image/*'
         multiple
@@ -90,7 +90,7 @@ const UploadImageList = ({onImageChange, imageUrl}) => {
         type='button'
         disabled={loading}
         onClick={handleSubmitImage}
-        className='h-[3.5rem] w-[7rem] p-3 font-nunito text-white bg-color-azul border border-color-azul rounded-md uppercase transition-all duration-300 hover:bg-transparent hover:text-color-azul'
+        className=' w-[5rem] h-[3.5rem] sm:w-[7rem] p-3 font-nunito text-white bg-color-azul border border-color-azul rounded-md uppercase transition-all duration-300 hover:bg-transparent hover:text-color-azul'
         >
         {loading ? 'Subiendo...' : 'Subir'}
       </button>
