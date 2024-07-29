@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-    baseURL:'https://nacfer-estate-server.vercel.app/',
+    baseURL:'https://nacfer-estate-server.vercel.app',
     withCredentials: true
 })
 
