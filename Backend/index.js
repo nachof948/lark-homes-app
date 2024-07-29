@@ -13,7 +13,7 @@ const app = express();
 const PUERTO = process.env.PUERTO;
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://nacfer-estate.vercel.app/'],
+    origin: ['http://localhost:5173', 'https://nacfer-estate.vercel.app'],
     credentials: true
 }));
 
