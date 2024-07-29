@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-    baseURL:'https://lark-homes-app.vercel.app/',
+    baseURL:'https://lark-homes-app.vercel.app',
     withCredentials: true
 })
 
