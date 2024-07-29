@@ -8,14 +8,12 @@ import userRoute from './routes/user.js';
 import commentRoute from './routes/comment.js';
 import 'dotenv/config';
 
-
 const app = express();
 
 const PUERTO = process.env.PUERTO;
 
-
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'https://lark-homes-app.vercel.app/'],
     credentials: true
 }));
 

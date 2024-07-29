@@ -1,4 +1,5 @@
 import Property from '../models/property.js'
+import Comment from '../models/comments.js'
 
 export const createProperty = async(req, res, next) =>{
     const { formData } = req.body;
@@ -13,7 +14,14 @@ export const createProperty = async(req, res, next) =>{
 export const deleteProperty = async (req, res, next) =>{
     const { id } = req.params
     try {
+        const property = await Property.findById(id)
+
+        if(!property){
+            return res.status(404).json({ message: 'Propiedad no encontrada'})
+        }
+        await Comment.deleteMany({postId:id})
         await Property.findByIdAndDelete(id)
+        
         res.status(200).json({ message: 'Se elimino correctamente'})
     } catch (error) {
         next(error)
