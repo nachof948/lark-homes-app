@@ -27,10 +27,10 @@ const ContactWithUs = () => {
     const templateParams = {
       user_name: e.target.user_name.value,
       user_email: e.target.user_email.value,
-      message: e.target.message.value + `El cliente quiere la siguiente propiedad: ${propertyUrl}`,
+      message: e.target.message.value,
     };
 
-    emailjs.send('service_qoppndk', 'template_mvnnfwc', templateParams, 'a843VPCEW6DfGtCe-')
+    emailjs.send('service_q2l7ns1', 'template_mvnnfwc', templateParams, '_ilesJsudssN3dpme')
     .then((result) => {
       console.log(result);
       toast.success('El mensaje fue enviado nos comunicaremos con usted dentro de las próximas 24hs a 48hs');
