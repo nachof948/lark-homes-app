@@ -17,7 +17,7 @@ const CustomersOpinion = () => {
   return (
     <section className='flex flex-col gap-6 font-nunito'>
       <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start">
-        <h1 className='text-2xl font-semibold mb-4 lg:mb-0 lg:text-3xl xl:text-4xl'>
+        <h1 className='text-2xl font-semibold mb-4 text-center sm:text-left lg:mb-0 lg:text-3xl xl:text-4xl'>
           Que dicen nuestros clientes
         </h1>
         <p className='w-[80%] text-sm text-color-gris text-center lg:text-left lg:w-[50vw] md:text-base lg:text-lg'>
