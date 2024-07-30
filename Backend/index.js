@@ -14,7 +14,6 @@ const PUERTO = process.env.PUERTO;
 
 app.use(cors({
     origin: 'https://nacfer-estate-app.vercel.app',
-    
     credentials: true
 }));
 
