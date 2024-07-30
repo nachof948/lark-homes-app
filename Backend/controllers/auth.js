@@ -26,7 +26,12 @@ export const signup = async (req, res, next) =>{
 
         const expiresDate = new Date();
         expiresDate.setDate(expiresDate.getDate() + 7);
-        res.status(200).cookie('access_token', token, {httpOnly: true, expires: expiresDate}).json(newUser)
+        res.status(200).cookie('access_token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None',
+            expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 días
+        }).json(newUser)
 
     } catch (error) {
         next(error)
@@ -98,7 +103,12 @@ export const google = async (req, res, next) =>{
             const token = jwt.sign({ id: newUser._id}, process.env.KEY_TOKEN)
             const expiresDate = new Date()
             expiresDate.setDate(expiresDate.getDate() + 7);
-            res.status(200).cookie('access_token', token, { httpOnly:true, expires: expiresDate}).json(newUser)
+            res.status(200).cookie('access_token', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'None',
+                expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 días
+            }).json(newUser)
         }
     } catch (error) {
         next(error)
