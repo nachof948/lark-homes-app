@@ -34,26 +34,36 @@ export const signup = async (req, res, next) =>{
 }
 
 /* SIGN IN */
-export const signin = async (req, res, next) =>{
+export const signin = async (req, res, next) => {
     const { email, password } = req.body;
     try {
-        const existingUser = await User.findOne({email})
-        if(!existingUser){
-            return res.status(404).json({ message: 'Usuario o Contraseña invalida'})
+        const existingUser = await User.findOne({ email });
+        if (!existingUser) {
+            return res.status(404).json({ message: 'Usuario o Contraseña invalida' });
         }
-        const isPasswordCorrect = await bcrypt.compare(password, existingUser.password)
-        
-        if(!isPasswordCorrect){
-            return res.status(401).json({ message: 'Usuario o Contraseña invalida' })
+
+        const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
+        if (!isPasswordCorrect) {
+            return res.status(401).json({ message: 'Usuario o Contraseña invalida' });
         }
-        const token = jwt.sign({ email: existingUser.email, password: password ,id: existingUser._id}, process.env.KEY_TOKEN)
-        const expiresDate = new Date();
-        expiresDate.setDate(expiresDate.getDate() + 7);
-        res.status(200).cookie('access_token', token, { httpOnly: true, sameSite: 'None',expires: expiresDate}).json(existingUser)
+
+        const token = jwt.sign(
+            { email: existingUser.email, id: existingUser._id },
+            process.env.KEY_TOKEN,
+            { expiresIn: '7d' }
+        );
+
+        res.cookie('access_token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None',
+            expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 días
+        }).status(200).json(existingUser);
     } catch (error) {
-        next(error)
+        next(error);
     }
-}
+};
+
 
 /* LOGOUT */
 export const logout = async (req, res, next) =>{
