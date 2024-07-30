@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ImagenLogin from '../../assets/Casa - 2.jpg';
 import emailjs from 'emailjs-com';
 import { useScrollToTop } from '../../hooks/useScrollTo' 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const ContactWithUs = () => {
+  const navegar = useNavigate()
   useScrollToTop()
   const [propertyUrl, setPropertyUrl] = useState('');
   const mensaje = `Hola quiero ver la siguiente propiedad: `
@@ -29,6 +33,8 @@ const ContactWithUs = () => {
     emailjs.send('service_qoppndk', 'template_mvnnfwc', templateParams, 'a843VPCEW6DfGtCe-')
       .then((result) => {
         console.log(result.text);
+        toast.success('El mensaje fue enviado nos comunicaremos con usted dentro de las proximas 24hs a 48hs');
+        navegar('/')
       })
       .catch((error) => {
         console.log(error.text);
@@ -53,6 +59,18 @@ const ContactWithUs = () => {
         </div>
         <button className='w-full bg-color-azul border border-color-azul hover:bg-transparent hover:text-color-azul text-white font-bold py-2 px-4 rounded transition-all duration-300 focus:outline-none focus:shadow-outline' type='submit'>Enviar</button>
       </form>
+      <ToastContainer
+              position="top-center"
+              autoClose={1100}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover={false}
+              theme="light"
+            />
     </section>
   )
 }
