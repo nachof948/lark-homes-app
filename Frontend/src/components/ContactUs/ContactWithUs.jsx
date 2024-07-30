@@ -31,14 +31,17 @@ const ContactWithUs = () => {
     };
 
     emailjs.send('service_qoppndk', 'template_mvnnfwc', templateParams, 'a843VPCEW6DfGtCe-')
-      .then((result) => {
-        console.log(result.text);
-        toast.success('El mensaje fue enviado nos comunicaremos con usted dentro de las proximas 24hs a 48hs');
-        navegar('/')
-      })
-      .catch((error) => {
-        console.log(error.text);
-      });
+    .then((result) => {
+      console.log(result.text);
+      toast.success('El mensaje fue enviado nos comunicaremos con usted dentro de las próximas 24hs a 48hs');
+      setTimeout(() => {
+        navegar('/');
+      }, 1500); 
+    })
+    .catch((error) => {
+      console.log(error.text);
+      toast.error('Hubo un problema al enviar el mensaje.');
+    });
   }
 
   return (
@@ -60,17 +63,17 @@ const ContactWithUs = () => {
         <button className='w-full bg-color-azul border border-color-azul hover:bg-transparent hover:text-color-azul text-white font-bold py-2 px-4 rounded transition-all duration-300 focus:outline-none focus:shadow-outline' type='submit'>Enviar</button>
       </form>
       <ToastContainer
-              position="top-center"
-              autoClose={1100}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover={false}
-              theme="light"
-            />
+        position="top-center"
+        autoClose={1100}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="light"
+      />
     </section>
   )
 }
