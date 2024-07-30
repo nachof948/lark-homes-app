@@ -49,7 +49,7 @@ export const signin = async (req, res, next) =>{
         const token = jwt.sign({ email: existingUser.email, password: password ,id: existingUser._id}, process.env.KEY_TOKEN)
         const expiresDate = new Date();
         expiresDate.setDate(expiresDate.getDate() + 7);
-        res.status(200).cookie('access_token', token, { httpOnly: true, expires: expiresDate}).json(existingUser)
+        res.status(200).cookie('access_token', token, { httpOnly: true, sameSite: 'None',expires: expiresDate}).json(existingUser)
     } catch (error) {
         next(error)
     }
