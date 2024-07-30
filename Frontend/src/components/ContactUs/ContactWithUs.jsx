@@ -32,11 +32,11 @@ const ContactWithUs = () => {
 
     emailjs.send('service_qoppndk', 'template_mvnnfwc', templateParams, 'a843VPCEW6DfGtCe-')
     .then((result) => {
-      console.log(result.text);
+      console.log(result);
       toast.success('El mensaje fue enviado nos comunicaremos con usted dentro de las próximas 24hs a 48hs');
       setTimeout(() => {
         navegar('/');
-      }, 1500); 
+      }, 2000); 
     })
     .catch((error) => {
       console.log(error.text);
