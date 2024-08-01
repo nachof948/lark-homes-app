@@ -21,8 +21,7 @@ export const publicationGetAll = () => async (dispatch) =>{
 export const publicationUpdate = (formData, id) => async (dispatch) =>{
     try {
         const { data } = await api.updatePublication(formData, id)
-        console.log(data)
-/*         dispatch({type: UPDATE_PUBLICATION, payload: data}) */
+        dispatch({type: UPDATE_PUBLICATION, payload: data})
     } catch (error) {
         console.log(error)
     }
