@@ -89,7 +89,8 @@ export const google = async (req, res, next) =>{
             const token = jwt.sign({ id: user._id}, process.env.KEY_TOKEN)
             const expiresDate = new Date();
             expiresDate.setDate(expiresDate.getDate() + 7);
-            res.status(200).cookie('access_token', token, { httpOnly:true, expires: expiresDate }).json(user)
+            res.status(200).cookie('access_token', token, { httpOnly:true,secure: process.env.NODE_ENV === 'production',
+                sameSite: 'None', expires: expiresDate }).json(user)
         }else {
             const generatePassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
             const hashPassword = await bcrypt.hash(generatePassword, 12);
@@ -105,6 +106,8 @@ export const google = async (req, res, next) =>{
             expiresDate.setDate(expiresDate.getDate() + 7);
             res.status(200).cookie('access_token', token, {
                 httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'None',
                 expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 días
             }).json(newUser)
         }
