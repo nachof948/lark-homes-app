@@ -12,10 +12,7 @@ const app = express();
 
 const PUERTO = process.env.PUERTO;
 
-app.use(cors({
-    origin: ['https://nacfer-estate-app.vercel.app','http://localhost:5173'],
-    credentials: true
-}));
+app.use(cors());
 
 app.use(cookieParser());
 app.use(express.json());
